@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: gksruf12
+  password: fn080408
   socket: /tmp/mysql.sock
 
 development:
@@ -50,5 +50,3 @@ test:
 production:
   <<: *default
   database: gogo_production
-  username: gogo
-  password: <%= ENV['GOGO_DATABASE_PASSWORD'] %>

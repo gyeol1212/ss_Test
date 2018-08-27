@@ -8,7 +8,7 @@ gem 'bootstrap', '~> 4.1.3'
 # AWS S3 
 gem "aws-sdk-s3", require: false
 
-
+gem 'rails_db', '~> 2.0', '>= 2.0.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use mysql as the database for Active Record
