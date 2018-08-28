@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :is_logged_in?
-  # before_action :is_currect_user?
-  before_action :is_admin?, only: [:destroy]
+  before_action :is_currect_user?, only: [:edit, :update, :show]
+  before_action :is_admin?, only: [:destroy, :index]
 
   def index
     if params && params[:q]
@@ -36,6 +36,23 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def edit
+    @company = Company.find(params[:id])
+  end
+
+  def update
+    @company = Company.find(params[:id])
+    if @company.update(post_params)
+      redirect_to company_path(@company)
+    else
+      flash[:alert] = ""
+      @company.errors.each do |field, messages|
+        flash[:alert] += "'#{field}' #{messages} | "
+      end
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   def show
     @company = Company.find(params[:id])
   end
@@ -66,10 +83,10 @@ class CompaniesController < ApplicationController
       end
     end
 
-    # def is_currect_user?
-    #   unless current_user.company.id
-    #     flash[:alert] = "권한이 없습니다."
-    #     redirect_back(fallback_location: root_path)
-    #   end
-    # end
+    def is_currect_user?
+      if !current_user.admin && current_user.company.id.to_s != params[:id]
+        flash[:alert] = "권한이 없습니다."
+        redirect_back(fallback_location: root_path)
+      end
+    end
 end
