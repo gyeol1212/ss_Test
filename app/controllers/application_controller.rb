@@ -12,4 +12,7 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:sign_up, keys: [:name]) # 회원가입용 permit
         devise_parameter_sanitizer.permit(:account_update, keys: [:name]) # 유저정보 업데이트용 permit
     end
+    # def after_sign_in_path_for(resource)
+    #     redirect_to home_index_path
+    # end
 end
