@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>이름</th>
+        <th>이메일</th>
+        <th>가입일시</th>
+        <th>승인</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @unpermitted_users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.created_at %></td>
+          <td><%= link_to "승인", permit_path(user.id), method: :put %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+<% if @unpermitted_users.empty? %>
+  <%= "가입요청이 없습니다." %>
+<% end %>

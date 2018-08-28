@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :is_logged_in?
+  before_action :is_permitted_user?
   before_action :is_currect_user?, only: [:edit, :update, :show]
   before_action :is_admin?, only: [:destroy, :index]
 
@@ -79,6 +80,13 @@ class CompaniesController < ApplicationController
     def is_admin?
       unless current_user.admin
         flash[:alert] = "권한이 없습니다."
+        redirect_back(fallback_location: root_path)
+      end
+    end
+
+    def is_permitted_user? # 승인되어 있지 않은 유저이면 되돌아가기
+      unless current_user.permitted
+        flash[:alert] = "승인되어있지 않은 계정입니다. 관리자에게 승인을 요청하세요"
         redirect_back(fallback_location: root_path)
       end
     end
