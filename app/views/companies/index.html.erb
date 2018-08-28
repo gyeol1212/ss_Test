@@ -1,26 +1,26 @@
-
-<%= form_tag("/search", method: "get") do %>
-  <%= select_tag("q[field]", options_for_select([["기업명","name"],["서비스명","service_name"],["기수","season"],["경영대생 유무","isBusinessStudent"]],1)) %>
-  <%= text_field_tag("q[value]") %>
-  <%= submit_tag("검색") %>
+<%= form_tag("/search", method: "get", class:"row m-3") do %>
+  <%= select_tag("q[field]", options_for_select([["기업명","name",{ 'class' => 'dropdown-item' }],["서비스명","service_name",{ 'class' => 'dropdown-item' }],["기수","season",{ 'class' => 'dropdown-item' }],["경영대생 유무","isBusinessStudent",{ 'class' => 'dropdown-item' }]],1,),class: 'col') %>
+  <%= text_field_tag("q[value]", "", class:'col-md-9') %>
+  <%= submit_tag "검색", class: 'btn btn-light border col-md-1' %>
+  <%= link_to '초기화' , companies_path, class: "btn btn-light border col-md-1" %>
 <% end %>
 
-<%= link_to '초기화' , companies_path %>
 
-<%= link_to '기업정보 작성', new_company_path %>
+
+
 
 <table class="table">
     <thead>
-      <tr class="row">
-        <th class="col-md-5">No.</th>
+      <tr>
+        <th>No.</th>
         <th>기수</th>
         <th>기업명</th>
         <th>서비스명</th>
         <th>연락처</th>
-        <th>사업자 등록 여부</th>
-        <th>법인 등록 여부</th>
-        <th>경영대생 유무</th>
-        <th>보러가기</th>
+        <th>사업자 <br>등록 여부</th>
+        <th>법인 <br>등록 여부</th>
+        <th>경영대생 <br> 유무</th>
+        <th >보러가기</th>
 
       </tr>
     </thead>
@@ -29,8 +29,8 @@
         <tr>
           <td><%= company.id %></td>
           <td><%= company.season %></td>
-          <td><%= truncate(company.name) %></td>
-          <td><%= truncate(company.service_name) %></td>
+          <td><%= truncate(company.name, length: 15) %></td>
+          <td><%= truncate(company.service_name, length: 10) %></td>
           <td><%= company.cellphone_num %></td>
           <td><%= company.isRegistered %></td>
           <td><%= company.isCorporated %></td>
@@ -48,3 +48,5 @@ Download:
   <% else %>
     <%= link_to "Excel", companies_path(format: "xls") %>
   <% end%>
+  <br>
+<%= link_to '기업정보 작성', new_company_path, class: "btn btn-light m-2" %>

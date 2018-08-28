@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container"> 
+    <%= link_to "StartUp Station", home_index_path, class: "navbar-brand" %>
+    <div class="collapse navbar-collapse justify-content-between">
+      <div>
+        <% if user_signed_in? %>
+          <span class="nav-item p-2">반갑습니다 <%= current_user.name %> 님</span>
+        <% end%>
+      </div>
+      <div class="navbar-nav">
+        <% if user_signed_in? %>
+          <%= link_to "개인정보수정", edit_user_registration_path, class: "nav-item nav-link" %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
+        <% else %>
+          <%= "방문자" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

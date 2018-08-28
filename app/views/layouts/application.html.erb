@@ -9,18 +9,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="container my-5">
-    <div> <%# 상단바 필요할까? 그럼 파셜로 빼고.. %>
-      <% if user_signed_in? %>
-        <%= "반갑습니다 #{current_user.name}님!" %>
-        <%= link_to "개인정보수정", edit_user_registration_path %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= "방문자" %>
-      <% end %>
+  <%= render 'layouts/navbar' %>
+  <body >
+    
+    
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+
   </body>
 </html>
