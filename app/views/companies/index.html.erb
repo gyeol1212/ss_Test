@@ -20,7 +20,6 @@
         <th>법인 등록 여부</th>
         <th>경영대생 유무</th>
         <th>보러가기</th>
-        <th>삭제</th>
 
       </tr>
     </thead>
@@ -29,14 +28,13 @@
         <tr>
           <td><%= company.id %></td>
           <td><%= company.season %></td>
-          <td><%= company.name %></td>
-          <td><%= company.service_name %></td>
+          <td><%= truncate(company.name) %></td>
+          <td><%= truncate(company.service_name) %></td>
           <td><%= company.cellphone_num %></td>
           <td><%= company.isRegistered %></td>
           <td><%= company.isCorporated %></td>
           <td><%= company.isBusinessStudent %></td>
           <td><%= link_to "show", company %></td>
-          <td><%= link_to "delete", company , method: :delete %></td>
           
         </tr>
       <% end %>
