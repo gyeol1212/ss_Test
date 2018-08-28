@@ -120,7 +120,8 @@
         </div>
         <div class="m-3">
             <%= f.label :"경영대생 유무"%>
-            <%= f.text_field :isBusinessStudent %>
+            <label><%= f.radio_button :isBusinessStudent, true%>Y</label>
+            <label><%= f.radio_button :isBusinessStudent, false %>N</label>
         </div>
         <div class="m-3">
             <%= f.label :"멘토링 횟수"%>

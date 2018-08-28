@@ -3,7 +3,13 @@ class CompaniesController < ApplicationController
   before_action :is_admin?, only: [:destroy]
 
   def index
-    @companies = Company.all
+    if params && params[:q]
+      params[:q].each do |key, value|
+        @companies = Company.where(key => value)
+      end
+    else
+      @companies = Company.all
+    end
 
     respond_to do |format|
       format.html
@@ -29,6 +35,7 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find(params[:id])
   end
+
   def destroy
     @company = Company.find(params[:id])
     @company.destroy

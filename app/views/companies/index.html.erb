@@ -1,6 +1,12 @@
 
-<%= link_to '기업정보 작성', new_company_path %>
+<%= form_tag("/filter", method: "get") do %>
+  <%= label_tag( "q[isBusinessStudent]", "경영대생 유무") %>
+  <label>Y<%= radio_button_tag( "q[isBusinessStudent]", "true") %></label>
+  <label>N<%= radio_button_tag( "q[isBusinessStudent]", "false") %></label>
+  <%= submit_tag("필터 설정") %>
+<% end %>
 
+<%= link_to '기업정보 작성', new_company_path %>
 
 <table class="table">
     <thead>
@@ -10,10 +16,9 @@
         <th>기업명</th>
         <th>서비스명</th>
         <th>연락처</th>
-        <th>로고</th>
         <th>사업자 등록 여부</th>
         <th>법인 등록 여부</th>
-        <th>기업 개요</th>
+        <th>경영대생 유무</th>
         <th>보러가기</th>
         <th>삭제</th>
 
@@ -27,10 +32,9 @@
           <td><%= company.name %></td>
           <td><%= company.service_name %></td>
           <td><%= company.cellphone_num %></td>
-          <td><%= company.logo %></td>
           <td><%= company.isRegistered %></td>
           <td><%= company.isCorporated %></td>
-          <td><%= company.company_overview %></td>
+          <td><%= company.isBusinessStudent %></td>
           <td><%= link_to "show", company %></td>
           <td><%= link_to "delete", company , method: :delete %></td>
           
