@@ -7,6 +7,7 @@ gem 'bootstrap', '~> 4.1.3'
 
 # AWS S3 
 gem "aws-sdk-s3", require: false
+gem "mini_magick"
 
 gem 'devise'
 gem 'rails_db', '~> 2.0', '>= 2.0.3'

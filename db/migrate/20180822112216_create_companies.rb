@@ -20,14 +20,13 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.text :service_overview
       t.string :website
       t.string :sns
-      t.integer :cellphone_num
-      t.integer :phone_num
-      t.integer :fax_num
+      t.string :cellphone_num
+      t.string :phone_num
+      t.string :fax_num
       t.date :move_in_date
       t.date :move_out_date
       t.boolean :isBusinessStudent
       t.integer :mentoring
-      t.string :files
 
       t.timestamps
     end

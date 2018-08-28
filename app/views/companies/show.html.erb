@@ -1,16 +1,58 @@
-<table>
-    <tr>
-        <td><%= @company.id %></td>
-        <td><%= @company.season %></td>
-        <td><%= @company.name %></td>
-        <td><%= @company.service_name %></td>
-        <td><%= @company.cellphone_num %></td>
-        <td><%= image_tag @company.logo %></td>
-        <td><%= @company.isRegistered %></td>
-        <td><%= @company.isCorporated %></td>
-        <td><%= @company.company_overview %></td>
-        
-    </tr>
-</table>
+
+
+
+
+<div><p><%= @company.season %>기</p></div>
+<div class="row">
+    <div class="col"><p>상호명 : <%= @company.name %></p></div>
+    <div class="col"><p>상호명(영문) : <%= @company.name_en %></p></div>
+</div>
+<div class="row">
+    <div class="col"><p>서비스명 : <%= @company.service_name %></p></div>
+    <div class="col"><p>서비스명(영문) : <%= @company.service_name_en %></p></div>
+</div>
+<div><p>기업 로고 : <%= image_tag @company.logo.variant(resize: "100x100") %></p></div>
+<div><p>기업 설립 날짜 : <%= @company.established_date%></p></div>
+<div>
+    <p>사업자 등록 여부 :
+        <% if @company.isRegistered == true %>
+            O
+        <% else %>
+            X
+        <% end%>
+    </p>
+</div>
+<div><p>사업자 등록 번호 : <%= @company.register_num%></p></div>
+<div><p>법인 유무 : 
+    <% if @company.isCorporated == true %>
+        O
+    <% else %>
+        X
+    <% end%>
+<div></p></div>
+<div><p>법인 등록 번호 : <%= @company.corporated_num %></p></div>
+<div><p>법인 설립 날짜 : <%= @company.corporated_date %></p></div>
+<div><p>공동 대표 여부 : <%= @company.co_CEO%></p></div>
+<div><p>대표자명 : <%= @company.CEO %></p></div>
+<div><p>주소 : 서울특별시 성북구 안암로 145 경영본관 2층 <%= @company.address %>호</p></div>
+<div><p>기업 개요 : <%= @company.company_overview %></p></div>
+<div><p>서비스 개요 : <%= @company.service_overview %></p></div>
+<div><p>웹사이트 : <%= @company.website %></p></div>
+<div><p>SNS : <%= @company.sns %></p></div>
+<div><p>휴대폰 번호 : <%= @company.cellphone_num[0,3] %>-<%= @company.cellphone_num[3,4] %>-<%= @company.cellphone_num[7,4] %></p></div>
+<div><p>일반전화 번호 : <%= @company.phone_num %></p></div>
+<div><p>팩스 번호 : <%= @company.fax_num %></p></div>
+<div><p>입주 날짜 : <%= @company.move_in_date %></p></div>
+<div><p>퇴주 날짜 : <%= @company.move_out_date %></p></div>
+<div><p>경영대생 유무 :
+    <% if @company.isBusinessStudent == true %>
+        O
+    <% else %>
+        X
+    <% end%>
+</p></div>
+<div><p>멘토링 횟수 : <%= @company.mentoring %></p></div>
+<div><p>EXPRESS 자료(pdf 파일) : <%= @company.express_file %></p></div>
+<div><p>발표 자료 : <%= @company.presentation %></p></div>
 
 <%= link_to "수정하기", edit_company_path(@company)%>
