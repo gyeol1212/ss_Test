@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :is_logged_in?
+  # before_action :is_currect_user?
   before_action :is_admin?, only: [:destroy]
 
   def index
@@ -23,10 +24,14 @@ class CompaniesController < ApplicationController
 
   def create
     @company = Company.new(post_params)
+    @company.user = current_user
     if @company.save
-      redirect_to companies_path
-    else
-      flash[:alert] = @company.errors # 유효성 검사를 통과하지 못할 경우 다시 new_company 페이지로 보냄 with flash
+      redirect_to company_path(current_user.company)
+    else # 유효성 검사를 통과하지 못할 경우 다시 new_company 페이지로 보냄 with flash
+      flash[:alert] = ""
+      @company.errors.each do |field, messages|
+        flash[:alert] += "'#{field}' #{messages} | "
+      end
       redirect_to new_company_path
     end
   end
@@ -60,4 +65,11 @@ class CompaniesController < ApplicationController
         redirect_back(fallback_location: root_path)
       end
     end
+
+    # def is_currect_user?
+    #   unless current_user.company.id
+    #     flash[:alert] = "권한이 없습니다."
+    #     redirect_back(fallback_location: root_path)
+    #   end
+    # end
 end

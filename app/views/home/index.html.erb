@@ -2,4 +2,11 @@
 <p>Find me in app/views/home/index.html.erb</p>
 
 
-<%= link_to '기업정보' , companies_path %>
+<% if current_user.nil? || current_user.admin%>
+    <% corp_info_link = companies_path %>
+<% elsif current_user.company %>
+    <% corp_info_link = company_path(current_user.company) %>
+<% else %>
+    <% corp_info_link = new_company_path %>
+<% end %>
+<%= link_to '기업정보' , corp_info_link%>
