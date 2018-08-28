@@ -1,7 +1,7 @@
 <div class="row">
 <div class="col-md-8">
 
-<img src="https://picsum.photos/700/700">
+<img src="https://picsum.photos/700/710">
 </div>
 
 
@@ -22,10 +22,10 @@
 
     <div class="form-actions">
       <%= f.button :submit, "Log in", class: "btn btn-light" %>
+      <%= render "devise/shared/links" %>
     </div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
 
 
   <%= link_to "비회원 접속", visitor_path,class: 'btn btn-light'%>
