@@ -43,4 +43,8 @@
 </table>
 
 Download:
-  <%= link_to "Excel", companies_path(format: "xls") %>
+  <% if @queryString %>
+    <%= link_to "Excel", companies_path(format: "xls") + @queryString %>
+  <% else %>
+    <%= link_to "Excel", companies_path(format: "xls") %>
+  <% end%>
