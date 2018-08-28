@@ -11,12 +11,16 @@ class Company < ApplicationRecord
     # validates :service_name, presence: true
     # validates :service_name_en, presence: true
     # validates :isRegistered, presence: true
+    # validates :established_date, presence: true
     # validates :isCorporated, presence: true
     # validates :co_CEO, presence: true
-    # validates :isBusinessStudent, presence: true
+    # validates :address, presence: true
     # validates :company_overview, presence: true, length: {maximum: 500}
     # validates :service_overview, presence: true, length: {maximum: 500}
-    
+    # validates :cellphone_num, presence: true
+    # validates :move_in_date, presence: true
+    # validates :cellphone_num, presence: true
+    # validates :isBusinessStudent, presence: true
     
     def self.to_csv(options = {})
         CSV.generate(options) do |csv|
