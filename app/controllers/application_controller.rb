@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
+    before_action :configure_permitted_parameters, if: :devise_controller?
+
     # 다운받는 파일 이름 설정하기 위해 필요
     def set_attachment_name(name)
         escaped = URI.encode(name)
         response.headers['Content-Disposition'] = "attachment; filename*=UTF-8''#{escaped}"
+    end
+
+    # devise
+    def configure_permitted_parameters
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:name]) # 회원가입용 permit
+        devise_parameter_sanitizer.permit(:account_update, keys: [:name]) # 유저정보 업데이트용 permit
     end
 end
