@@ -42,8 +42,11 @@
     </tbody>
 </table>
 
-
 Download:
-  <%= link_to "Excel", companies_path(format: "xls") %>
-<br>
+  <% if @queryString %>
+    <%= link_to "Excel", companies_path(format: "xls") + @queryString %>
+  <% else %>
+    <%= link_to "Excel", companies_path(format: "xls") %>
+  <% end%>
+  <br>
 <%= link_to '기업정보 작성', new_company_path, class: "btn btn-light m-2" %>

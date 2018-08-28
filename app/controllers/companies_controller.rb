@@ -5,6 +5,7 @@ class CompaniesController < ApplicationController
   def index
     if params && params[:q]
       @companies = Company.where(params[:q][:field] => params[:q][:value])
+      @queryString = "?q[field]=#{params[:q][:field]}&q[value]=#{params[:q][:value]}"
     else
       @companies = Company.all
     end
