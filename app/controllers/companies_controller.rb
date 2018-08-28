@@ -4,9 +4,7 @@ class CompaniesController < ApplicationController
 
   def index
     if params && params[:q]
-      params[:q].each do |key, value|
-        @companies = Company.where(key => value)
-      end
+      @companies = Company.where(params[:q][:field] => params[:q][:value])
     else
       @companies = Company.all
     end
