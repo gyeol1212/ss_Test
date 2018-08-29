@@ -29,11 +29,12 @@ class CompaniesController < ApplicationController
     if @company.save
       redirect_to company_path(current_user.company)
     else # 유효성 검사를 통과하지 못할 경우 다시 new_company 페이지로 보냄 with flash
+      @company.logo.purge # blob 와 amazon S3에 있는 파일 삭제
       flash[:alert] = ""
       @company.errors.each do |field, messages|
         flash[:alert] += "'#{field}' #{messages} | "
       end
-      redirect_to new_company_path
+      render new_company_path
     end
   end
 
