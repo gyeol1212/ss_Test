@@ -28,9 +28,27 @@
           <td><%= truncate(company.name, length: 15) %></td>
           <td><%= truncate(company.service_name, length: 10) %></td>
           <td><%= company.cellphone_num %></td>
-          <td><%= company.isRegistered %></td>
-          <td><%= company.isCorporated %></td>
-          <td><%= company.isBusinessStudent %></td>
+          <td>
+            <% if company.isRegistered %>
+              O
+            <% else %>
+              X
+            <% end %>
+          </td>
+          <td>
+            <% if company.isCorporated %>
+              O
+            <% else %>
+              X
+            <% end %>
+          </td>
+          <td>
+            <% if company.isBusinessStudent %>
+              O
+            <% else %>
+              X
+            <% end %>
+          </td>
           <td><%= link_to "show", company %></td>
           
         </tr>
