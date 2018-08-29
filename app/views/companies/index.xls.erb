@@ -3,12 +3,34 @@
       <tr>
         <th>No.</th>
         <th>기수</th>
-        <th>기업명</th>
+        <th>상호명</th>
+        <th>상호명(영문)</th>
         <th>서비스명</th>
-        <th>연락처</th>
+        <th>서비스명(영문)</th>
+        <th>기업 설립 날짜</th>
         <th>사업자 등록 여부</th>
+        <th>사업자 등록 번호</th>
         <th>법인 등록 여부</th>
+        <th>법인 등록 번호</th>
+        <th>법인 설립 날짜</th>
+        <th>공동 대표 여부</th>
+        <th>대표자명</th>
+        <th>주소</th>
+        <th>기업 개요</th>
+        <th>서비스 개요</th>
+        <th>웹사이트</th>
+        <th>SNS</th>
+        <th>휴대폰 번호</th>
+        <th>일반전화 번호</th>
+        <th>팩스 번호</th>
+        <th>입주 날짜</th>
+        <th>퇴주 날짜</th>
         <th>경영대생 유무</th>
+        <th>멘토링 횟수</th>
+        <th>로고</th>
+        <th>로고(Ai)</th>
+        <th>EXPRESS 자료</th>
+        <th>발표 자료</th>
 
       </tr>
     </thead>
@@ -18,12 +40,41 @@
           <td><%= company.id %></td>
           <td><%= company.season %></td>
           <td><%= company.name %></td>
+          <td><%= company.name_en %></td>
           <td><%= company.service_name %></td>
-          <td><%= company.cellphone_num %></td>
+          <td><%= company.service_name_en %></td>
+          <td><%= company.established_date %></td>
           <td><%= company.isRegistered %></td>
+          <td><%= company.register_num %></td>
           <td><%= company.isCorporated %></td>
+          <td><%= company.corporated_num %></td>
+          <td><%= company.corporated_date %></td>
+          <td><%= company.co_CEO %></td>
+          <td><%= company.CEO %></td>
+          <td><%= company.address %></td>
+          <td><%= company.company_overview %></td>
+          <td><%= company.service_overview %></td>
+          <td><%= company.website %></td>
+          <td><%= company.sns %></td>
+          <td><%= company.cellphone_num %></td>
+          <td><%= company.phone_num %></td>
+          <td><%= company.fax_num %></td>
+          <td><%= company.move_in_date %></td>
+          <td><%= company.move_out_date %></td>
           <td><%= company.isBusinessStudent %></td>
-          
+          <td><%= company.mentoring %></td>
+          <% if company.logo.attachment %>
+            <td><%= company.logo.service_url %></td>
+          <% end %>
+          <% if company.logo_ai.attachment %>
+            <td><%= company.logo_ai.service_url %></td>
+          <% end %>
+          <% if company.express_file.attachment %>
+            <td><%= company.express_file.service_url %></td>
+          <% end %>
+          <% if company.presentation.attachment %>
+            <td><%= company.presentation.service_url %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
