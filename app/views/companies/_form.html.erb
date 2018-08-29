@@ -2,44 +2,44 @@
 
     <div class="form-group">
         <%= f.label :"기수"%>
-        <%= f.number_field :season, class: "form-control" %>
+        <%= f.number_field :season, class: "form-control", required: true %>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <%= f.label :"상호"%>
-            <%= f.text_field :name, class: "form-control" %>
+            <%= f.text_field :name, class: "form-control" , required: true %>
         </div>
         <div class="form-group col-md-6">
             <%= f.label :"상호(영문)"%>
-            <%= f.text_field :name_en, class: "form-control" %>
+            <%= f.text_field :name_en, class: "form-control", required: true  %>
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <%= f.label :"서비스명"%>
-            <%= f.text_field :service_name, class: "form-control" %>
+            <%= f.text_field :service_name, class: "form-control", required: true  %>
         </div>
         <div class="form-group col-md-6">
             <%= f.label :"서비스명(영문)"%>
-            <%= f.text_field :service_name_en, class: "form-control" %>
+            <%= f.text_field :service_name_en, class: "form-control", required: true  %>
         </div>
     </div>
     
     <div class="form-row">
         <div class="form-group col-md-6">
             <%= f.label :"기업 로고 (jpg, jpeg, png 파일)"%>
-            <%= f.file_field :logo, accept: '.jpg , .jpeg , .png' %>
+            <%= f.file_field :logo, accept: '.jpg , .jpeg , .png', required: true %>
         </div>
         <div class="form-group col-md-6">
             <%= f.label :"기업 로고(Ai 파일)", class: "d-block"%>
-            <%= f.file_field :logo_ai, accept: '.ai' %>
+            <%= f.file_field :logo_ai, accept: '.ai', required: true  %>
         </div>
         
     </div>
     
     <div class="form-group">
             <%= f.label :"기업 설립 날짜"%>
-            <%= f.date_field :established_date, class: "form-control"  %>
+            <%= f.date_field :established_date, class: "form-control", required: true   %>
     </div>
 
     <div class="form-row">
@@ -78,21 +78,21 @@
         </div>
         <div class="form-group col-md-5">
             <%= f.label :"대표자명"%>
-            <%= f.text_field :CEO , class: "form-control"%>
+            <%= f.text_field :CEO , class: "form-control", required: true %>
         </div>
         <div class="form-group col-md-5">
             <%= f.label :"주소"%>
-            <%= f.text_field :address , class: "form-control"%>
+            <%= f.text_field :address , class: "form-control", required: true %>
         </div>
     </div>
     
     <div class="form-group">
         <%= f.label :"기업 개요"%>
-        <%= f.text_area :company_overview , class: "form-control"%>
+        <%= f.text_area :company_overview , class: "form-control", required: true %>
     </div>
     <div class="form-group">
         <%= f.label :"서비스 개요"%>
-        <%= f.text_area :service_overview, class: "form-control" %>
+        <%= f.text_area :service_overview, class: "form-control", required: true  %>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -107,7 +107,7 @@
     <div class="form-row">
         <div class="form-group col-md-4">
             <%= f.label :"휴대폰 번호"%>
-            <%= f.number_field :cellphone_num, class: "form-control" %>
+            <%= f.number_field :cellphone_num, class: "form-control", required: true  %>
         </div>
         <div class="form-group col-md-4">
             <%= f.label :"일반전화 번호"%>
@@ -121,7 +121,7 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <%= f.label :"입주 날짜"%>
-            <%= f.date_field :move_in_date, class: "form-control" %>
+            <%= f.date_field :move_in_date, class: "form-control", required: true  %>
         </div>
         <div class="form-group col-md-6">
             <%= f.label :"퇴주 날짜"%>
