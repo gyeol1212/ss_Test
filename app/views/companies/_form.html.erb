@@ -1,8 +1,17 @@
 <%= form_for(company) do |f|%>
-
-    <div class="form-group">
-        <%= f.label :"기수"%>
-        <%= f.number_field :season, class: "form-control" %>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <%= f.label :"기수"%>
+            <%= f.number_field :season, class: "form-control" %>
+        </div>
+         <div class="form-group col-md-4">
+            <%= f.label :"기업 로고 (jpg, jpeg, png 파일)"%>
+            <%= f.file_field :logo, accept: '.jpg , .jpeg , .png' %>
+        </div>
+        <div class="form-group col-md-4">
+            <%= f.label :"기업 로고(Ai 파일)", class: "d-block"%>
+            <%= f.file_field :logo_ai, accept: '.ai' %>
+        </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -26,14 +35,7 @@
     </div>
     
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <%= f.label :"기업 로고 (jpg, jpeg, png 파일)"%>
-            <%= f.file_field :logo, accept: '.jpg , .jpeg , .png' %>
-        </div>
-        <div class="form-group col-md-6">
-            <%= f.label :"기업 로고(Ai 파일)", class: "d-block"%>
-            <%= f.file_field :logo_ai, accept: '.ai' %>
-        </div>
+       
         
     </div>
     
@@ -123,10 +125,10 @@
             <%= f.label :"입주 날짜"%>
             <%= f.date_field :move_in_date, class: "form-control" %>
         </div>
-        <div class="form-group col-md-6">
-            <%= f.label :"퇴주 날짜"%>
-            <%= f.date_field :move_out_date, class: "form-control" %>
-        </div>
+        <%# <div class="form-group col-md-6"> %>
+            <%# <%= f.label :"퇴주 날짜"%> 
+            <%# <%= f.date_field :move_out_date, class: "form-control" %> 
+        <%# </div> %>
     </div>
     <div class="form-row">
         <div class="form-group col-md-3">
@@ -134,10 +136,10 @@
             <label><%= f.radio_button :isBusinessStudent, true%>Y</label>
             <label><%= f.radio_button :isBusinessStudent, false %>N</label>
         </div>
-        <div class="form-group col-md-9">
-            <%= f.label :"멘토링 횟수"%>
-            <%= f.number_field :mentoring, class: "form-control" %>
-        </div>
+        <%# <div class="form-group col-md-9"> %>
+            <%# <%= f.label :"멘토링 횟수"%>
+            <%# <%= f.number_field :mentoring, class: "form-control" %> 
+        <%# </div> %>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -145,7 +147,7 @@
             <%= f.file_field :express_file, accept: ".pdf" %>
         </div>
         <div class="form-group col-md-6">
-            <%= f.label :"발표자료(pdf, ppt, pptx 파일)"%>
+            <%= f.label :"발표자료(pdf, ppt, pptx 파일)", class: "d-block"%>
             <%= f.file_field :presentation, accept: ".pdf , .ppt , .pptx" %>
         </div>
     </div>
