@@ -67,13 +67,15 @@
     </div>
 
     <div class="row my-3">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <p>기업 개요</p>
-            <div style="word-break:break-all" class="border p-3"><p><%= @company.company_overview %></p></div>
+            <div style="word-break:break-all; height:250px; overflow:scroll" class="border p-3"><p><%= @company.company_overview %></p></div>
         </div>
-        <div class="col-md-6">
+    </div>
+    <div class="row my-3">
+        <div class="col-md-12">
             <p>서비스 개요</p>
-            <div style="word-break:break-all" class="border p-3"><%= @company.service_overview %></div>
+            <div style="word-break:break-all; height:250px; overflow:scroll" class="border p-3"><p><%= @company.service_overview %></p></div>
         </div>
     </div>
 
@@ -125,28 +127,28 @@
             <% if @company.express_file.attachment != nil %>
                 <a class="m-2 btn btn-light" href="<%= @company.express_file.service_url %>">EXPRESS 자료</a>
             <% else %>
-                <a class="m-2 btn btn-light disabled" >EXPRESS 자료</a>
+                <a class="m-2 btn btn-light disabled" ><del>EXPRESS 자료</del></a>
             <% end %>
         </div>
         <div>
             <% if @company.presentation.attachment != nil %>
                 <a class="m-2 btn btn-light" href="<%= @company.presentation.service_url %>">발표 자료</a>
             <% else %>
-                <a class="m-2 btn btn-light disabled" >발표 자료</a>
+                <a class="m-2 btn btn-light disabled" ><del>발표 자료</del></a>
             <% end %>
         </div>
         <div>
             <% if @company.logo.attachment != nil %>
                 <a class="m-2 btn btn-light" href="<%= @company.logo.service_url %>">기업 로고</a>
             <% else %>
-                <a class="m-2 btn btn-light disabled" >기업 로고</a>
+                <a class="m-2 btn btn-light disabled" ><del>기업 로고</del></a>
             <% end %>
         </div>
         <div>
             <% if @company.logo_ai.attachment != nil %>
                 <a class="m-2 btn btn-light" href="<%= @company.logo_ai.service_url %>">기업 로고(Ai)</a>
             <% else %>
-                <a class="m-2 btn btn-light disabled" >기업 로고(Ai)</a>
+                <a class="m-2 btn btn-light disabled" ><del>기업 로고(Ai)</del></a>
             <% end %>
         </div>
     </div>
