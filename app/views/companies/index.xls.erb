@@ -56,7 +56,7 @@
           <td><%= company.service_overview %></td>
           <td><%= company.website %></td>
           <td><%= company.sns %></td>
-          <td><%= company.cellphone_num %></td>
+          <td><%= company.cellphone_num[0,3] %>-<%= company.cellphone_num[3,4] %>-<%= company.cellphone_num[7,4] %></td>
           <td><%= company.phone_num %></td>
           <td><%= company.fax_num %></td>
           <td><%= company.move_in_date %></td>
