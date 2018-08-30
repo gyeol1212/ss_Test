@@ -80,11 +80,11 @@
         </div>
         <div class="form-group col-md-5">
             <%= f.label :"대표자명"%>
-            <%= f.text_field :CEO , class: "form-control", required: true %>
+            <%= f.text_field :CEO , class: "form-control", required: true, placeholder: "공동 대표의 경우 쉼표(,)로 구분해 작성해주세요" %>
         </div>
         <div class="form-group col-md-5">
-            <%= f.label :"주소"%>
-            <%= f.text_field :address , class: "form-control", required: true %>
+            <%= f.label :"주소 (호수)"%>
+            <%= f.number_field :address , class: "form-control", required: true %>
         </div>
     </div>
     
@@ -98,11 +98,11 @@
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <%= f.label :"웹사이트"%>
+            <%= f.label :"웹사이트 (선택)"%>
             <%= f.text_field :website, class: "form-control" %>
         </div>
         <div class="form-group col-md-6">
-            <%= f.label :"SNS"%>
+            <%= f.label :"SNS (선택)"%>
             <%= f.text_field :sns, class: "form-control" %>
         </div>
     </div>
@@ -112,11 +112,11 @@
             <%= f.number_field :cellphone_num, class: "form-control", required: true  %>
         </div>
         <div class="form-group col-md-4">
-            <%= f.label :"일반전화 번호"%>
+            <%= f.label :"일반전화 번호 (선택)"%>
             <%= f.number_field :phone_num, class: "form-control" %>
         </div>
         <div class="form-group col-md-4">
-            <%= f.label :"팩스 번호"%>
+            <%= f.label :"팩스 번호 (선택)"%>
             <%= f.number_field :fax_num, class: "form-control" %>
         </div>
     </div>
