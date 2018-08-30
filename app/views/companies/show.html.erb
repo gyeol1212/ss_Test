@@ -1,7 +1,7 @@
 
 
 
-<div class="h4 my-5 border px-5">
+<div class="h5 my-5 border px-5">
     <div class="row align-items-center my-3 border">
         <div class="col-md-2 text-center">
             <%= image_tag @company.logo.variant(resize: "100x100"), class: "p-3" %>
@@ -120,25 +120,37 @@
         </div>
     </div>
 
-    <div class="row my-3">
-        <div class="col-md-6">
-            <p>EXPRESS 자료(pdf 파일)</p>
-                <% if @company.express_file.attachment != nil %>
-                    <a href="<%= @company.express_file.service_url %>">다운로드</a>
-                <% else %>
-                    X
-                <% end %>
+    <div class="my-3 d-flex justify-content-end">
+        <div>
+            <% if @company.express_file.attachment != nil %>
+                <a class="m-2 btn btn-light" href="<%= @company.express_file.service_url %>">EXPRESS 자료</a>
+            <% else %>
+                <a class="m-2 btn btn-light disabled" >EXPRESS 자료</a>
+            <% end %>
         </div>
-        <div class="col-md-6">
-            <p>발표 자료 </p>
-                <% if @company.presentation.attachment != nil %>
-                    <a href="<%= @company.presentation.service_url %>">다운로드</a>
-                <% else %>
-                    X
-                <% end %>
+        <div>
+            <% if @company.presentation.attachment != nil %>
+                <a class="m-2 btn btn-light" href="<%= @company.presentation.service_url %>">발표 자료</a>
+            <% else %>
+                <a class="m-2 btn btn-light disabled" >발표 자료</a>
+            <% end %>
+        </div>
+        <div>
+            <% if @company.logo.attachment != nil %>
+                <a class="m-2 btn btn-light" href="<%= @company.logo.service_url %>">기업 로고</a>
+            <% else %>
+                <a class="m-2 btn btn-light disabled" >기업 로고</a>
+            <% end %>
+        </div>
+        <div>
+            <% if @company.logo_ai.attachment != nil %>
+                <a class="m-2 btn btn-light" href="<%= @company.logo_ai.service_url %>">기업 로고(Ai)</a>
+            <% else %>
+                <a class="m-2 btn btn-light disabled" >기업 로고(Ai)</a>
+            <% end %>
         </div>
     </div>
-
-    <%= link_to "수정하기", edit_company_path(@company), class: "mb-5 btn btn-light"%>
-
+    <div>
+        <%= link_to "수정하기", edit_company_path(@company), class: "mb-5 btn btn-light"%>
+    </div>
 </div>
