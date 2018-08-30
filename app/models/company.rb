@@ -19,7 +19,7 @@ class Company < ApplicationRecord
     validates :service_overview, presence: true, length: {maximum: 500}
     validates :cellphone_num, presence: true
     validates :move_in_date, presence: true
-    validates :logo, presence: true
+    # validates :logo, presence: true
     
     def self.to_csv(options = {})
         CSV.generate(options) do |csv|
