@@ -125,30 +125,30 @@
     <div class="my-3 d-flex justify-content-end">
         <div>
             <% if @company.express_file.attachment != nil %>
-                <a class="m-2 btn btn-light" href="<%= @company.express_file.service_url %>">EXPRESS 자료</a>
+                <a class="m-2 btn btn-outline-info" href="<%= @company.express_file.service_url %>">EXPRESS 자료</a>
             <% else %>
-                <a class="m-2 btn btn-light disabled" ><del>EXPRESS 자료</del></a>
+                <a class="m-2 btn btn-outline-info disabled" ><del>EXPRESS 자료</del></a>
             <% end %>
         </div>
         <div>
             <% if @company.presentation.attachment != nil %>
-                <a class="m-2 btn btn-light" href="<%= @company.presentation.service_url %>">발표 자료</a>
+                <a class="m-2 btn btn-outline-info" href="<%= @company.presentation.service_url %>">발표 자료</a>
             <% else %>
-                <a class="m-2 btn btn-light disabled" ><del>발표 자료</del></a>
+                <a class="m-2 btn btn-outline-info disabled" ><del>발표 자료</del></a>
             <% end %>
         </div>
         <div>
             <% if @company.logo.attachment != nil %>
-                <a class="m-2 btn btn-light" href="<%= @company.logo.service_url %>">기업 로고</a>
+                <a class="m-2 btn btn-outline-info" href="<%= @company.logo.service_url %>">기업 로고</a>
             <% else %>
-                <a class="m-2 btn btn-light disabled" ><del>기업 로고</del></a>
+                <a class="m-2 btn btn-outline-info disabled" ><del>기업 로고</del></a>
             <% end %>
         </div>
         <div>
             <% if @company.logo_ai.attachment != nil %>
-                <a class="m-2 btn btn-light" href="<%= @company.logo_ai.service_url %>">기업 로고(Ai)</a>
+                <a class="m-2 btn btn-outline-info" href="<%= @company.logo_ai.service_url %>">기업 로고(Ai)</a>
             <% else %>
-                <a class="m-2 btn btn-light disabled" ><del>기업 로고(Ai)</del></a>
+                <a class="m-2 btn btn-outline-info disabled" ><del>기업 로고(Ai)</del></a>
             <% end %>
         </div>
     </div>

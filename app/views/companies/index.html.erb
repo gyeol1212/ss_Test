@@ -56,10 +56,10 @@
     </tbody>
 </table>
 
-Download:
-  <% if @queryString %>
-    <%= link_to "Excel", companies_path(format: "xls") + @queryString %>
-  <% else %>
-    <%= link_to "Excel", companies_path(format: "xls") %>
-  <% end%>
+
+<% if @queryString %>
+  <%= link_to "Excel 다운", companies_path(format: "xls") + @queryString, class:"btn btn-info" %>
+<% else %>
+  <%= link_to "Excel 다운", companies_path(format: "xls"), class:"btn btn-outline-info" %>
+<% end%>
 
