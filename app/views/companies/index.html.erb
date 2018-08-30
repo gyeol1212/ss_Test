@@ -1,4 +1,4 @@
-<%= form_tag("/search", method: "get", class:"row m-3") do %>
+<%= form_tag("/search", method: "get", class:"row m-3", id:"search") do %>
   <%= select_tag("q[field]", options_for_select([["기업명","name",{ 'class' => 'dropdown-item' }],["서비스명","service_name",{ 'class' => 'dropdown-item' }],["기수","season",{ 'class' => 'dropdown-item' }],["경영대생 유무","isBusinessStudent",{ 'class' => 'dropdown-item' }]],1,),class: 'col') %>
   <%= text_field_tag("q[value]", "", class:'col-md-9') %>
   <%= submit_tag "검색", class: 'btn btn-light border col-md-1' %>
@@ -63,3 +63,13 @@ Download:
     <%= link_to "Excel", companies_path(format: "xls") %>
   <% end%>
 
+<script>
+  // let q_value = $("#search #q_value");
+  // $("#search #q_field").change((event) => {
+  //   if($("#q_field option:selected")[0].innerText === "경영대생 유무") {
+  //     q_value = q_value.detach();
+  //   } else {
+  //     q_value.insertAfter("#q_field");
+  //   }
+  // });
+</script>
