@@ -2,11 +2,11 @@
     <div class="form-row">
         <div class="form-group col-md-4">
             <%= f.label :"기수"%>
-            <%= f.number_field :season, class: "form-control" %>
+            <%= f.number_field :season, class: "form-control", required: true %>
         </div>
          <div class="form-group col-md-4">
             <%= f.label :"기업 로고 (jpg, jpeg, png 파일)"%>
-            <%= f.file_field :logo, accept: '.jpg , .jpeg , .png' %>
+            <%= f.file_field :logo, accept: '.jpg , .jpeg , .png', required: true %>
         </div>
         <div class="form-group col-md-4">
             <%= f.label :"기업 로고(Ai 파일)", class: "d-block"%>
@@ -20,7 +20,7 @@
         </div>
         <div class="form-group col-md-6">
             <%= f.label :"상호(영문)"%>
-            <%= f.text_field :name_en, class: "form-control", required: true  %>
+            <%= f.text_field :name_en, class: "form-control", required: true, pattern: "[A-Za-z0-9]+"  %>
         </div>
     </div>
     <div class="form-row">
@@ -30,7 +30,7 @@
         </div>
         <div class="form-group col-md-6">
             <%= f.label :"서비스명(영문)"%>
-            <%= f.text_field :service_name_en, class: "form-control", required: true  %>
+            <%= f.text_field :service_name_en, class: "form-control", required: true, pattern: "[A-Za-z0-9]+"  %>
         </div>
     </div>
     
@@ -125,10 +125,12 @@
             <%= f.label :"입주 날짜"%>
             <%= f.date_field :move_in_date, class: "form-control", required: true  %>
         </div>
-        <%# <div class="form-group col-md-6"> %>
-            <%# <%= f.label :"퇴주 날짜"%> 
-            <%# <%= f.date_field :move_out_date, class: "form-control" %> 
-        <%# </div> %>
+    <% if current_user.admin %>
+        <div class="form-group col-md-6">
+            <%= f.label :"퇴주 날짜"  %>
+            <%= f.date_field :move_out_date, class: "form-control is-invalid" %> 
+        </div>
+    <% end %>
     </div>
     <div class="form-row">
         <div class="form-group col-md-3">
@@ -136,10 +138,12 @@
             <label><%= f.radio_button :isBusinessStudent, true%>Y</label>
             <label><%= f.radio_button :isBusinessStudent, false %>N</label>
         </div>
-        <%# <div class="form-group col-md-9"> %>
-            <%# <%= f.label :"멘토링 횟수"%>
-            <%# <%= f.number_field :mentoring, class: "form-control" %> 
-        <%# </div> %>
+    <% if current_user.admin %>
+        <div class="form-group col-md-9">
+            <%= f.label :"멘토링 횟수"%>
+            <%= f.number_field :mentoring, class: "form-control is-invalid" %>
+        </div>
+    <% end %>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
