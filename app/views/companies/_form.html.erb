@@ -45,20 +45,20 @@
     </div>
 
     <div class="form-row">
-        <div class="form-group col-md-2">
+        <div id="isRegistered" class="form-group col-md-2">
             <%= f.label :"사업자등록여부", class: "d-block"%>
             <label><%= f.radio_button :isRegistered, true %>Y</label>
             <label><%= f.radio_button :isRegistered, false %>N</label>
         </div>
         <div class="form-group col-md-10">
             <%= f.label :"사업자 등록 번호"%>
-            <%= f.number_field :register_num, class: "form-control" %>
+            <%= f.number_field :register_num, class: "form-control"%>
         </div>
     </div>
        
     
     <div class="form-row">
-        <div class="form-group col-md-2">
+        <div id="isCorporated" class="form-group col-md-2">
             <%= f.label :"법인 유무", class: "d-block" %>
             <label><%= f.radio_button :isCorporated, true %>Y</label>
             <label><%= f.radio_button :isCorporated, false %>N</label>
@@ -156,3 +156,27 @@
         <%= f.submit class: "btn btn-light" %>
     </div>
 <% end %>
+
+
+<script>
+    $("#isRegistered").change(() => {
+        if($('input[name="company[isRegistered]"]:checked').val() === 'false'){
+            $("#company_register_num").attr("disabled", "disabled")
+            $("#company_register_num").val("")
+        } else {
+            $("#company_register_num").removeAttr("disabled")
+        }
+    })
+
+    $("#isCorporated").change(() => {
+        if($('input[name="company[isCorporated]"]:checked').val() === 'false'){
+            $("#company_corporated_num").attr("disabled", "disabled")
+            $("#company_corporated_num").val("")
+            $("#company_corporated_date").attr("disabled", "disabled")
+            $("#company_corporated_date").val("")
+        } else {
+            $("#company_corporated_num").removeAttr("disabled")
+            $("#company_corporated_date").removeAttr("disabled")
+        }
+    })
+</script>
