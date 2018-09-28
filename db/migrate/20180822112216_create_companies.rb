@@ -14,7 +14,9 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.integer :register_num
       t.date :register_date
       t.string :up_tae
-      t.string :jong_mok
+      t.string :jong_mok1
+      t.string :jong_mok2
+      t.string :jong_mok3
       t.date :start_date
       t.date :move_in_date
       t.date :move_out_date
@@ -25,7 +27,11 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.date :corporated_date
 
       t.integer :CEO_num
-      t.string :CEO
+      t.string :CEO1
+      t.string :CEO2
+      t.string :CEO3
+      t.string :CEO4
+      t.string :CEO5
       t.string :CEO_en
 
       t.text :company_overview
