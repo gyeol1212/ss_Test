@@ -36,15 +36,15 @@
         </div>
         <div class="col-md-2">
             <%= f.label :"표시 이름"%>
-            <%= f.radio_button :co_CEO, true, class: "d-block mt-4 mb-5"%>
-            <%= f.radio_button :co_CEO, true, class: "d-block my-5"%>
-            <%= f.radio_button :co_CEO, true, class: "d-block my-5"%>
-            <%= f.radio_button :co_CEO, true, class: "d-block my-5"%>
+            <%= f.radio_button :name, true, class: "d-block mt-4 mb-5"%>
+            <%= f.radio_button :name, true, class: "d-block my-5"%>
+            <%= f.radio_button :name, true, class: "d-block my-5"%>
+            <%= f.radio_button :name, true, class: "d-block my-5"%>
         </div>
         <div class="col-md-6">
              <div class="form-group form-row col-md-12">
                 <%= f.label :"식별번호", class: "col-md-4"%>
-                <%= f.number_field :season, class: "form-control  col-md-8", required: true %>
+                <%= f.number_field :uniq_num, class: "form-control  col-md-8", required: true %>
             </div>
         
             <div class="form-group form-row col-md-12">
@@ -57,73 +57,72 @@
     <div class="form-row">
         <div class="form-group form-row col-md-6">
             <%= f.label :"대표자 수", class: "col-md-4  p-2"%>
-            <%= f.select(:register_num, [1,2,3,4,5], {}, { :class => 'form-control col-md-8 대표자수', "v-model": "ceo_num" }) %>
+            <%= f.select(:CEO_num, [1,2,3,4,5], {}, { :class => 'form-control col-md-8 대표자수', "v-model": "ceo_num" }) %>
         </div>
     </div>
     <div id="대표자1" class="form-row">
         <div class="form-group form-row col-md-6">
             <%= f.label :"대표자명", class:"col-md-4 p-2"%>
-            <%= f.text_field :CEO , class: "form-control  col-md-8", required: true %>
+            <%= f.text_field :CEO1 , class: "form-control  col-md-8", required: true %>
         </div>
         <div class="form-group form-row col-md-6">
             <%= f.label :"대표자명(영문)", class:"col-md-4 text-center p-2"%>
-            <%= f.text_field :CEO , class: "form-control  col-md-8", required: true %>
+            <%= f.text_field :CEO1 , class: "form-control  col-md-8", required: true %>
         </div>
     </div>
     <div id="대표자2" class="form-row" v-if="ceo_num >= 2">
         <div class="form-group form-row col-md-6">
             <%= f.label :"대표자명", class:"col-md-4 p-2"%>
-            <%= f.text_field :CEO , class: "form-control  col-md-8", required: true %>
+            <%= f.text_field :CEO2 , class: "form-control  col-md-8", required: true %>
         </div>
         <div class="form-group form-row col-md-6">
             <%= f.label :"대표자명(영문)", class:"col-md-4 p-2"%>
-            <%= f.text_field :CEO , class: "form-control  col-md-8", required: true %>
+            <%= f.text_field :CEO2 , class: "form-control  col-md-8", required: true %>
         </div>
     </div>
     <div id="대표자3" class="form-row" v-if="ceo_num >= 3">
         <div class="form-group form-row col-md-6">
             <%= f.label :"대표자명", class:"col-md-4 p-2"%>
-            <%= f.text_field :CEO , class: "form-control  col-md-8", required: true %>
+            <%= f.text_field :CEO3 , class: "form-control  col-md-8", required: true %>
         </div>
         <div class="form-group form-row col-md-6">
             <%= f.label :"대표자명(영문)", class:"col-md-4 p-2"%>
-            <%= f.text_field :CEO , class: "form-control  col-md-8", required: true %>
+            <%= f.text_field :CEO3 , class: "form-control  col-md-8", required: true %>
         </div>
     </div>
     <div id="대표자4" class="form-row" v-if="ceo_num >= 4">
         <div class="form-group form-row col-md-6">
             <%= f.label :"대표자명", class:"col-md-4 p-2"%>
-            <%= f.text_field :CEO , class: "form-control  col-md-8", required: true %>
+            <%= f.text_field :CEO4 , class: "form-control  col-md-8", required: true %>
         </div>
         <div class="form-group form-row col-md-6">
             <%= f.label :"대표자명(영문)", class:"col-md-4 p-2"%>
-            <%= f.text_field :CEO , class: "form-control  col-md-8", required: true %>
+            <%= f.text_field :CEO4 , class: "form-control  col-md-8", required: true %>
         </div>
     </div>
     <div id="대표자5" class="form-row" v-if="ceo_num >= 5">
         <div class="form-group form-row col-md-6">
             <%= f.label :"대표자명", class:"col-md-4 p-2"%>
-            <%= f.text_field :CEO , class: "form-control  col-md-8", required: true %>
+            <%= f.text_field :CEO5 , class: "form-control  col-md-8", required: true %>
         </div>
         <div class="form-group form-row col-md-6">
             <%= f.label :"대표자명(영문)", class:"col-md-4 p-2"%>
-            <%= f.text_field :CEO , class: "form-control  col-md-8", required: true %>
+            <%= f.text_field :CEO5 , class: "form-control  col-md-8", required: true %>
         </div>
     </div>
-    
     
 
     <div class="form-row">
         <div id="isRegistered" class="form-group form-row col-md-4 text-center">
             <%= f.label :"사업자등록여부", class: "col-md-4 p-2"%>
-            <label class="col-md-4"><%= f.radio_button :isRegistered, true %>Y</label>
-            <label class="col-md-4"><%= f.radio_button :isRegistered, false %>N</label>
+            <label class="col-md-4"><%= f.radio_button :is_registered, true %>Y</label>
+            <label class="col-md-4"><%= f.radio_button :is_registered, false %>N</label>
         </div>
     </div>
     <div class="form-row">
         <div class="form-group form-row col-md-4">
             <%= f.label :"사업자 종류", class: "col-md-4 p-2"%>
-            <%= f.select(:co_CEO, [['개인 사업자',true], ['법인 사업자',false]], {}, { :class => 'form-control col-md-8', "v-model": "is_individual"}) %>
+            <%= f.select(:is_individual, [['개인 사업자',true], ['법인 사업자',false]], {}, { :class => 'form-control col-md-8', "v-model": "is_individual"}) %>
         </div>
         <div class="form-group form-row col-md-8" v-if="is_individual === 'true'">
             <%= f.label :"사업자 번호", class: "col-md-3 p-2 text-center"%>
@@ -137,38 +136,40 @@
             <%= f.number_field :register_num, class: "form-control col-md-4" %>
         </div>
     </div>
+       
+    
     <div class="form-row">
         <div class="form-group form-row col-md-4">
-                <%= f.label :"기업 설립 날짜", class: "col-md-4 p-2"%>
-                <%= f.date_field :established_date, class: "form-control col-md-8", required: true   %>
+                <%= f.label :"사업자 등록일", class: "col-md-4 p-2"%>
+                <%= f.date_field :corporated_date, class: "form-control col-md-8", required: true   %>
         </div>
         <div class="form-group form-row col-md-4">
                 <%= f.label :"업태명", class: "col-md-4 p-2 text-center"%>
-                <%= f.text_field :service_name, class: "form-control col-md-8", required: true  %>
+                <%= f.text_field :up_tae, class: "form-control col-md-8", required: true  %>
         </div>
         <div class="form-group form-row col-md-4">
                 <%= f.label :"종목명", class: "col-md-4 p-2 text-center"%>
-                <%= f.text_field :service_name, class: "form-control col-md-8", required: true  %>
+                <%= f.text_field :jong_mok1, class: "form-control col-md-8", required: true  %>
         </div>
     </div>
     <div class="form-row">
         <div class="form-group form-row col-md-6">
                 <%= f.label :"창업 시작일", class: "col-md-4 p-2"%>
-                <%= f.date_field :established_date, class: "form-control col-md-8", required: true   %>
+                <%= f.date_field :start_date, class: "form-control col-md-8", required: true   %>
         </div>
         <div class="form-group form-row col-md-6">
                 <%= f.label :"입주날짜", class: "col-md-4 p-2 text-center"%>
-                <%= f.date_field :established_date, class: "form-control col-md-8", required: true   %>
+                <%= f.date_field :move_in_date, class: "form-control col-md-8", required: true   %>
         </div>
     </div>
     <div class="form-row">
         <div class="form-group form-row col-md-6">
             <%= f.label :"졸업/퇴주", class: "col-md-4 p-2"%>
-            <%= f.select(:register_num, ['졸업 날짜', '퇴주 날짜'], {}, { :class => 'form-control col-md-8' }) %>
+            <%= f.select(:move_out_date, ['졸업 날짜', '퇴주 날짜'], {}, { :class => 'form-control col-md-8' }) %>
         </div>
         <div class="form-group form-row col-md-6">
                 <%= f.label :"퇴주날짜", class: "col-md-4 p-2 text-center"%>
-                <%= f.date_field :established_date, class: "form-control col-md-8", required: true   %>
+                <%= f.date_field :move_out_date, class: "form-control col-md-8", required: true   %>
         </div>
     </div>
         
@@ -194,7 +195,6 @@
             <%= f.file_field :express_file, accept: ".pdf",class: "col-md-8" %>
         </div>
     </div>
-
     <div class="form-row">
         <div class="form-group form-row col-md-4">
             <%= f.label :"대표 휴대폰", class: "col-md-4 p-2"%>
@@ -206,10 +206,9 @@
         </div>
         <div class="form-group form-row col-md-4">
             <%= f.label :"대표 이메일", class: "col-md-4 p-2 text-center"%>
-            <%= f.text_field :fax_num, class: "form-control col-md-8" %>
+            <%= f.text_field :email, class: "form-control col-md-8" %>
         </div>
     </div>
-
     <div class="form-row">
         <div class="form-group form-row col-md-6">
             <%= f.label :"웹사이트 (선택)", class: "col-md-4 p-2"%>
@@ -219,12 +218,13 @@
             <%= f.label :"SNS (선택)", class: "col-md-4 p-2"%>
             <%= f.text_field :sns, class: "form-control col-md-8" %>
         </div>
+    
     </div>
     <div class="form-row">
         <div class="form-row form-group col-md-6">
             <%= f.label :"경영대생 유무", class: "col-md-4 p-2"%>
-            <label class="col-md-4"><%= f.radio_button :isBusinessStudent, true%>Y</label>
-            <label class="col-md-4"><%= f.radio_button :isBusinessStudent, false %>N</label>
+            <label class="col-md-4"><%= f.radio_button :is_business_student, true%>Y</label>
+            <label class="col-md-4"><%= f.radio_button :is_business_student, false %>N</label>
         </div>
     </div>
     <div class="form-group form-row">
@@ -234,16 +234,6 @@
     <div class="form-group form-row">
         <%= f.label :"서비스 개요"%>
         <%= f.text_area :service_overview, class: "form-control", required: true, rows: "5",maxlength: "500"  %>
-    </div>
-   
-    <div class="form-row">
-        
-    <% if current_user.admin %>
-        <div class="form-group form-row col-md-9">
-            <%= f.label :"멘토링 횟수"%>
-            <%= f.number_field :mentoring, class: "form-control is-invalid" %>
-        </div>
-    <% end %>
     </div>
         
     <div class="form-group form-row col-md-6">
@@ -258,6 +248,7 @@
 
 
 <script>
+
     $("#isRegistered").change(() => {
         if($('input[name="company[isRegistered]"]:checked').val() === 'false'){
             $("#company_register_num").attr("disabled", "disabled")
@@ -278,6 +269,5 @@
             $("#company_corporated_date").removeAttr("disabled")
         }
     })
-
     
 </script>
