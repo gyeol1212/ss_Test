@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_09_28_061727) do
     t.date "move_in_date"
     t.date "move_out_date"
     t.string "address"
+    t.date "established_date"
     t.boolean "is_corporated"
     t.integer "corporated_num"
     t.date "corporated_date"

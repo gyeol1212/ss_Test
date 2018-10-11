@@ -47,8 +47,8 @@
     <div class="form-row">
         <div id="isRegistered" class="form-group col-md-2">
             <%= f.label :"사업자등록여부", class: "d-block"%>
-            <label><%= f.radio_button :isRegistered, true %>Y</label>
-            <label><%= f.radio_button :isRegistered, false %>N</label>
+            <label><%= f.radio_button :is_registered, true %>Y</label>
+            <label><%= f.radio_button :is_registered, false %>N</label>
         </div>
         <div class="form-group col-md-10">
             <%= f.label :"사업자 등록 번호"%>
@@ -60,8 +60,8 @@
     <div class="form-row">
         <div id="isCorporated" class="form-group col-md-2">
             <%= f.label :"법인 유무", class: "d-block" %>
-            <label><%= f.radio_button :isCorporated, true %>Y</label>
-            <label><%= f.radio_button :isCorporated, false %>N</label>
+            <label><%= f.radio_button :is_corporated, true %>Y</label>
+            <label><%= f.radio_button :is_corporated, false %>N</label>
         </div>
         <div class="form-group col-md-5">
             <%= f.label :"법인 등록 번호"%>
@@ -79,7 +79,7 @@
         </div>
         <div class="form-group col-md-5">
             <%= f.label :"대표자명"%>
-            <%= f.text_field :CEO , class: "form-control", required: true, placeholder: "공동 대표의 경우 쉼표(,)로 구분해 작성해주세요" %>
+            <%= f.text_field :CEO1 , class: "form-control", required: true, placeholder: "공동 대표의 경우 쉼표(,)로 구분해 작성해주세요" %>
         </div>
         <div class="form-group col-md-5">
             <%= f.label :"주소 (호수)"%>
@@ -134,8 +134,8 @@
     <div class="form-row">
         <div class="form-group col-md-3">
             <%= f.label :"경영대생 유무", class: "d-block"%>
-            <label><%= f.radio_button :isBusinessStudent, true%>Y</label>
-            <label><%= f.radio_button :isBusinessStudent, false %>N</label>
+            <label><%= f.radio_button :is_business_student, true%>Y</label>
+            <label><%= f.radio_button :is_business_student, false %>N</label>
         </div>
     <% if current_user.admin %>
         <div class="form-group col-md-9">
