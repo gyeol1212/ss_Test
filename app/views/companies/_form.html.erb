@@ -1,158 +1,271 @@
 <%= form_for(company) do |f|%>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <%= f.label :"기수"%>
-            <%= f.number_field :season, class: "form-control", required: true %>
-        </div>
-         <div class="form-group col-md-4">
-            <%= f.label :"기업 로고 (jpg, jpeg, png 파일)"%>
-            <%= f.file_field :logo, accept: '.jpg , .jpeg , .png'%>
-        </div>
-        <div class="form-group col-md-4">
-            <%= f.label :"기업 로고(Ai 파일)", class: "d-block"%>
-            <%= f.file_field :logo_ai, accept: '.ai' %>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <%= f.label :"상호"%>
-            <%= f.text_field :name, class: "form-control" , required: true %>
-        </div>
-        <div class="form-group col-md-6">
-            <%= f.label :"상호(영문)"%>
-            <%= f.text_field :name_en, class: "form-control", required: true, pattern: "[A-Za-z0-9]+"  %>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <%= f.label :"서비스명"%>
-            <%= f.text_field :service_name, class: "form-control", required: true  %>
-        </div>
-        <div class="form-group col-md-6">
-            <%= f.label :"서비스명(영문)"%>
-            <%= f.text_field :service_name_en, class: "form-control", required: true, pattern: "[A-Za-z0-9]+"  %>
-        </div>
-    </div>
     
-    <div class="form-row">
-       
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-row">
+                <div class="form-group form-row col-md-12">
+                    <%= f.label :"기수", class: "col-md-4 p-2"%>
+                    <%= f.number_field :season, class: "form-control col-md-8", required: true %>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group form-row col-md-12">
+                    <%= f.label :"상호", class: "col-md-4 p-2"%>
+                    <%= f.text_field :name, class: "form-control  col-md-8" , required: true %>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group form-row col-md-12">
+                    <%= f.label :"상호(영문)", class: "col-md-4 p-2"%>
+                    <%= f.text_field :name_en, class: "form-control  col-md-8", required: true, pattern: "[A-Za-z0-9]+"  %>
+                </div>
+                
+            </div>
+            <div class="form-row">
+                <div class="form-group form-row col-md-12">
+                    <%= f.label :"서비스명", class: "col-md-4 p-2"%>
+                    <%= f.text_field :service_name, class: "form-control  col-md-8", required: true  %>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group form-row col-md-12">
+                    <%= f.label :"서비스명(영문)", class: "col-md-4 p-2"%>
+                    <%= f.text_field :service_name_en, class: "form-control  col-md-8", required: true, pattern: "[A-Za-z0-9]+"  %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <%= f.label :"표시 이름"%>
+            <%= f.radio_button :name, true, class: "d-block mt-4 mb-5"%>
+            <%= f.radio_button :name, true, class: "d-block my-5"%>
+            <%= f.radio_button :name, true, class: "d-block my-5"%>
+            <%= f.radio_button :name, true, class: "d-block my-5"%>
+        </div>
+        <div class="col-md-6">
+             <div class="form-group form-row col-md-12">
+                <%= f.label :"식별번호", class: "col-md-4"%>
+                <%= f.number_field :uniq_num, class: "form-control  col-md-8", required: true %>
+            </div>
         
+            <div class="form-group form-row col-md-12">
+                <%= f.label :"기업 로고", class: "col-md-4"%>
+                <%= f.file_field :logo, accept: '.jpg , .jpeg , .png', class: "col-md-8"%>
+            </div>
+        </div>
     </div>
     
-    <div class="form-group">
-            <%= f.label :"기업 설립 날짜"%>
-            <%= f.date_field :established_date, class: "form-control", required: true   %>
+    <div class="form-row">
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"대표자 수", class: "col-md-4  p-2"%>
+            <%= f.select(:CEO_num, [1,2,3,4,5], {}, { :class => 'form-control col-md-8 대표자수', "v-model": "ceo_num" }) %>
+        </div>
     </div>
+    <div id="대표자1" class="form-row">
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"대표자명", class:"col-md-4 p-2"%>
+            <%= f.text_field :CEO1 , class: "form-control  col-md-8", required: true %>
+        </div>
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"대표자명(영문)", class:"col-md-4 text-center p-2"%>
+            <%= f.text_field :CEO1 , class: "form-control  col-md-8", required: true %>
+        </div>
+    </div>
+    <div id="대표자2" class="form-row" v-if="ceo_num >= 2">
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"대표자명", class:"col-md-4 p-2"%>
+            <%= f.text_field :CEO2 , class: "form-control  col-md-8", required: true %>
+        </div>
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"대표자명(영문)", class:"col-md-4 p-2"%>
+            <%= f.text_field :CEO2 , class: "form-control  col-md-8", required: true %>
+        </div>
+    </div>
+    <div id="대표자3" class="form-row" v-if="ceo_num >= 3">
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"대표자명", class:"col-md-4 p-2"%>
+            <%= f.text_field :CEO3 , class: "form-control  col-md-8", required: true %>
+        </div>
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"대표자명(영문)", class:"col-md-4 p-2"%>
+            <%= f.text_field :CEO3 , class: "form-control  col-md-8", required: true %>
+        </div>
+    </div>
+    <div id="대표자4" class="form-row" v-if="ceo_num >= 4">
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"대표자명", class:"col-md-4 p-2"%>
+            <%= f.text_field :CEO4 , class: "form-control  col-md-8", required: true %>
+        </div>
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"대표자명(영문)", class:"col-md-4 p-2"%>
+            <%= f.text_field :CEO4 , class: "form-control  col-md-8", required: true %>
+        </div>
+    </div>
+    <div id="대표자5" class="form-row" v-if="ceo_num >= 5">
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"대표자명", class:"col-md-4 p-2"%>
+            <%= f.text_field :CEO5 , class: "form-control  col-md-8", required: true %>
+        </div>
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"대표자명(영문)", class:"col-md-4 p-2"%>
+            <%= f.text_field :CEO5 , class: "form-control  col-md-8", required: true %>
+        </div>
+    </div>
+    
 
     <div class="form-row">
+<<<<<<< HEAD
         <div id="isRegistered" class="form-group col-md-2">
             <%= f.label :"사업자등록여부", class: "d-block"%>
             <label><%= f.radio_button :is_registered, true %>Y</label>
             <label><%= f.radio_button :is_registered, false %>N</label>
+=======
+        <div id="isRegistered" class="form-group form-row col-md-4 text-center">
+            <%= f.label :"사업자등록여부", class: "col-md-4 p-2"%>
+            <label class="col-md-4"><%= f.radio_button :is_registered, true %>Y</label>
+            <label class="col-md-4"><%= f.radio_button :is_registered, false %>N</label>
+>>>>>>> 8c2fa1e6401031651d662f0d2ae1ac832b639ea0
         </div>
-        <div class="form-group col-md-10">
-            <%= f.label :"사업자 등록 번호"%>
-            <%= f.number_field :register_num, class: "form-control"%>
+    </div>
+    <div class="form-row">
+        <div class="form-group form-row col-md-4">
+            <%= f.label :"사업자 종류", class: "col-md-4 p-2"%>
+            <%= f.select(:is_individual, [['개인 사업자',true], ['법인 사업자',false]], {}, { :class => 'form-control col-md-8', "v-model": "is_individual"}) %>
+        </div>
+        <div class="form-group form-row col-md-8" v-if="is_individual === 'true'">
+            <%= f.label :"사업자 번호", class: "col-md-3 p-2 text-center"%>
+            <%= f.number_field :register_num, class: "form-control col-md-3" %>
+            <%= f.number_field :register_num, class: "form-control col-md-3" %>
+            <%= f.number_field :register_num, class: "form-control col-md-3" %> 
+        </div>
+        <div class="form-group form-row col-md-8" v-if="is_individual === 'false'">
+            <%= f.label :"사업자 번호", class: "col-md-4 p-2 text-center"%>
+            <%= f.number_field :register_num, class: "form-control col-md-4" %>
+            <%= f.number_field :register_num, class: "form-control col-md-4" %>
         </div>
     </div>
        
     
     <div class="form-row">
+<<<<<<< HEAD
         <div id="isCorporated" class="form-group col-md-2">
             <%= f.label :"법인 유무", class: "d-block" %>
             <label><%= f.radio_button :is_corporated, true %>Y</label>
             <label><%= f.radio_button :is_corporated, false %>N</label>
+=======
+        <div class="form-group form-row col-md-4">
+                <%= f.label :"사업자 등록일", class: "col-md-4 p-2"%>
+                <%= f.date_field :corporated_date, class: "form-control col-md-8", required: true   %>
+>>>>>>> 8c2fa1e6401031651d662f0d2ae1ac832b639ea0
         </div>
-        <div class="form-group col-md-5">
-            <%= f.label :"법인 등록 번호"%>
-            <%= f.number_field :corporated_num, class: "form-control"  %>
+        <div class="form-group form-row col-md-4">
+                <%= f.label :"업태명", class: "col-md-4 p-2 text-center"%>
+                <%= f.text_field :up_tae, class: "form-control col-md-8", required: true  %>
         </div>
-        <div class="form-group col-md-5">
-            <%= f.label :"법인 설립 날짜"%>
-            <%= f.date_field :corporated_date, class: "form-control"  %>
+        <div class="form-group form-row col-md-4">
+                <%= f.label :"종목명", class: "col-md-4 p-2 text-center"%>
+                <%= f.text_field :jong_mok1, class: "form-control col-md-8", required: true  %>
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-2">
-            <%= f.label :"대표자 수"%>
-            
+        <div class="form-group form-row col-md-6">
+                <%= f.label :"창업 시작일", class: "col-md-4 p-2"%>
+                <%= f.date_field :start_date, class: "form-control col-md-8", required: true   %>
         </div>
+<<<<<<< HEAD
         <div class="form-group col-md-5">
             <%= f.label :"대표자명"%>
             <%= f.text_field :CEO1 , class: "form-control", required: true, placeholder: "공동 대표의 경우 쉼표(,)로 구분해 작성해주세요" %>
-        </div>
-        <div class="form-group col-md-5">
-            <%= f.label :"주소 (호수)"%>
-            <%= f.number_field :address , class: "form-control", required: true %>
+=======
+        <div class="form-group form-row col-md-6">
+                <%= f.label :"입주날짜", class: "col-md-4 p-2 text-center"%>
+                <%= f.date_field :move_in_date, class: "form-control col-md-8", required: true   %>
+>>>>>>> 8c2fa1e6401031651d662f0d2ae1ac832b639ea0
         </div>
     </div>
+    <div class="form-row">
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"졸업/퇴주", class: "col-md-4 p-2"%>
+            <%= f.select(:move_out_date, ['졸업 날짜', '퇴주 날짜'], {}, { :class => 'form-control col-md-8' }) %>
+        </div>
+        <div class="form-group form-row col-md-6">
+                <%= f.label :"퇴주날짜", class: "col-md-4 p-2 text-center"%>
+                <%= f.date_field :move_out_date, class: "form-control col-md-8", required: true   %>
+        </div>
+    </div>
+        
+
+       
     
-    <div class="form-group">
-        <%= f.label :"기업 개요"%>
-        <%= f.text_area :company_overview , class: "form-control", required: true, rows: "5",maxlength: "500" %>
-    </div>
-    <div class="form-group">
-        <%= f.label :"서비스 개요"%>
-        <%= f.text_area :service_overview, class: "form-control", required: true, rows: "5",maxlength: "500"  %>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <%= f.label :"웹사이트 (선택)"%>
-            <%= f.text_field :website, class: "form-control" %>
+    
+    
+        <div class="form-group form-row">
+            <%= f.label :"소재지 : 서울특별시 성북구 안암로 145 고려대학교 경영대학 본관 2층", class: "p-2"%>
+            <%= f.number_field :address , class: "form-control col-md-1", required: true %><%= f.label :"호", class: "p-2"%>
         </div>
-        <div class="form-group col-md-6">
-            <%= f.label :"SNS (선택)"%>
-            <%= f.text_field :sns, class: "form-control" %>
+   
+    <div class="form-row">
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"사업자 등록증", class: "d-block col-md-4 p-2 "%>
+            <%= f.file_field :express_file, accept: ".pdf" ,class: "col-md-8"%>
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-4">
-            <%= f.label :"휴대폰 번호"%>
-            <%= f.number_field :cellphone_num, class: "form-control", required: true  %>
-        </div>
-        <div class="form-group col-md-4">
-            <%= f.label :"일반전화 번호 (선택)"%>
-            <%= f.number_field :phone_num, class: "form-control" %>
-        </div>
-        <div class="form-group col-md-4">
-            <%= f.label :"팩스 번호 (선택)"%>
-            <%= f.number_field :fax_num, class: "form-control" %>
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"법인 등기부 등본", class: "d-block col-md-4 p-2"%>
+            <%= f.file_field :express_file, accept: ".pdf",class: "col-md-8" %>
         </div>
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <%= f.label :"입주 날짜"%>
-            <%= f.date_field :move_in_date, class: "form-control", required: true  %>
+        <div class="form-group form-row col-md-4">
+            <%= f.label :"대표 휴대폰", class: "col-md-4 p-2"%>
+            <%= f.number_field :cellphone_num, class: "form-control col-md-8", required: true  %>
         </div>
-    <% if current_user.admin %>
-        <div class="form-group col-md-6">
-            <%= f.label :"퇴주 날짜"  %>
-            <%= f.date_field :move_out_date, class: "form-control is-invalid" %> 
+        <div class="form-group form-row col-md-4">
+            <%= f.label :"대표 전화", class: "col-md-4 p-2 text-center"%>
+            <%= f.number_field :phone_num, class: "form-control col-md-8" %>
         </div>
-    <% end %>
+        <div class="form-group form-row col-md-4">
+            <%= f.label :"대표 이메일", class: "col-md-4 p-2 text-center"%>
+            <%= f.text_field :email, class: "form-control col-md-8" %>
+        </div>
     </div>
     <div class="form-row">
+<<<<<<< HEAD
         <div class="form-group col-md-3">
             <%= f.label :"경영대생 유무", class: "d-block"%>
             <label><%= f.radio_button :is_business_student, true%>Y</label>
             <label><%= f.radio_button :is_business_student, false %>N</label>
+=======
+        <div class="form-group form-row col-md-6">
+            <%= f.label :"웹사이트 (선택)", class: "col-md-4 p-2"%>
+            <%= f.text_field :website, class: "form-control col-md-8" %>
+>>>>>>> 8c2fa1e6401031651d662f0d2ae1ac832b639ea0
         </div>
-    <% if current_user.admin %>
-        <div class="form-group col-md-9">
-            <%= f.label :"멘토링 횟수"%>
-            <%= f.number_field :mentoring, class: "form-control is-invalid" %>
+        <div class="form-group form-row col-md-6 text-center">
+            <%= f.label :"SNS (선택)", class: "col-md-4 p-2"%>
+            <%= f.text_field :sns, class: "form-control col-md-8" %>
         </div>
-    <% end %>
+    
     </div>
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <%= f.label :"EXPRESS 자료(pdf 파일)", class: "d-block"%>
-            <%= f.file_field :express_file, accept: ".pdf" %>
+        <div class="form-row form-group col-md-6">
+            <%= f.label :"경영대생 유무", class: "col-md-4 p-2"%>
+            <label class="col-md-4"><%= f.radio_button :is_business_student, true%>Y</label>
+            <label class="col-md-4"><%= f.radio_button :is_business_student, false %>N</label>
         </div>
-        <div class="form-group col-md-6">
-            <%= f.label :"발표자료(pdf, ppt, pptx 파일)", class: "d-block"%>
-            <%= f.file_field :presentation, accept: ".pdf , .ppt , .pptx" %>
-        </div>
+    </div>
+    <div class="form-group form-row">
+        <%= f.label :"기업 개요"%>
+        <%= f.text_area :company_overview , class: "form-control", required: true, rows: "5",maxlength: "500" %>
+    </div>
+    <div class="form-group form-row">
+        <%= f.label :"서비스 개요"%>
+        <%= f.text_area :service_overview, class: "form-control", required: true, rows: "5",maxlength: "500"  %>
+    </div>
+        
+    <div class="form-group form-row col-md-6">
+        <%= f.label :"발표자료(pdf, ppt, pptx 파일)", class: "d-block"%>
+        <%= f.file_field :presentation, accept: ".pdf , .ppt , .pptx" %>
     </div>
     
     <div>
@@ -183,4 +296,5 @@
             $("#company_corporated_date").removeAttr("disabled")
         }
     })
+    
 </script>

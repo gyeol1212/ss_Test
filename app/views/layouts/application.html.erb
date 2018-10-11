@@ -13,17 +13,25 @@
       integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
       crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   </head>
 
   <%= render 'layouts/navbar' %>
-  <body >
-    
-    
-    <div class="container">
+  <body>
+    <div id="app" class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
 
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        ceo_num: 1,
+        is_individual: "true"
+      }
+    })
+  </script>
   </body>
 </html>
