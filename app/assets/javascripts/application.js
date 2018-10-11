@@ -14,3 +14,16 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+$(document).on('turbolinks:load', ready);
+function ready() {
+  const app = new Vue({
+    el: '#app',
+    data: {
+      ceo_num: 1,
+      is_individual: 'true',
+      user_level: '<%= current_user && current_user.admin %>',
+      corp_register: 'false',
+      graduate_or_out: '졸업 날짜'
+    }
+  });
+}

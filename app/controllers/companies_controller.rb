@@ -68,7 +68,7 @@ class CompaniesController < ApplicationController
 
   private
     def post_params
-      params.require(:company).permit(:logo, :logo_ai, :express_file, :presentation, :season, :name, :name_en, :service_name, :service_name_en, :uniq_num, :is_registered, :register_num, :is_individual, :register_date, :up_tae, :jong_mok, :start_date, :is_corporated, :corporated_num, :corporated_date, :CEO_num, :CEO, :CEO_en, :address, :company_overview, :service_overview, :website, :sns, :cellphone_num, :phone_num, :email, :move_in_date, :move_out_date, :is_business_student, :represent_name)
+      params.require(:company).permit(:logo, :logo_ai, :express_file, :presentation, :season, :name, :name_en, :service_name, :service_name_en, :uniq_num, :is_registered, :register_num, :is_individual, :register_date, :up_tae, :jong_mok, :start_date, :is_corporated, :corporated_num, :corporated_date, :CEO_num, :CEO1, :CEO1_en, :address, :company_overview, :service_overview, :website, :sns, :cellphone_num, :phone_num, :email, :move_in_date, :move_out_date, :is_business_student, :represent_name)
     end
 
     def is_logged_in? # 로그인 되었는지 확인하고 안되어 있으면 되돌아가기

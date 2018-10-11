@@ -12,13 +12,13 @@ class Company < ApplicationRecord
     validates :name_en, presence: true
     validates :service_name, presence: true
     validates :service_name_en, presence: true
-    validates :established_date, presence: true
-    validates :CEO, presence: true
-    validates :address, presence: true
-    validates :company_overview, presence: true, length: {maximum: 500}
-    validates :service_overview, presence: true, length: {maximum: 500}
-    validates :cellphone_num, presence: true
-    validates :move_in_date, presence: true
+    # validates :established_date, presence: true
+
+    # validates :address, presence: true
+    # validates :company_overview, presence: true, length: {maximum: 500}
+    # validates :service_overview, presence: true, length: {maximum: 500}
+    # validates :cellphone_num, presence: true
+    # validates :move_in_date, presence: true
     # validates :logo, presence: true
     
     def self.to_csv(options = {})

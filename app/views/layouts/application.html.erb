@@ -6,14 +6,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script
+        <script
       src="https://code.jquery.com/jquery-3.3.1.slim.js"
       integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
       crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
   </head>
 
   <%= render 'layouts/navbar' %>
@@ -25,13 +24,6 @@
     </div>
 
   <script>
-    const app = new Vue({
-      el: '#app',
-      data: {
-        ceo_num: 1,
-        is_individual: "true"
-      }
-    })
   </script>
   </body>
 </html>

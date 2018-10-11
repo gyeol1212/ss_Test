@@ -33,7 +33,11 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.string :CEO3
       t.string :CEO4
       t.string :CEO5
-      t.string :CEO_en
+      t.string :CEO1_en
+      t.string :CEO2_en
+      t.string :CEO3_en
+      t.string :CEO4_en
+      t.string :CEO5_en
 
       t.text :company_overview
       t.text :service_overview

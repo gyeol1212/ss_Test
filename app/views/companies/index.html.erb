@@ -27,23 +27,25 @@
           <td><%= company.season %></td>
           <td><%= truncate(company.name, length: 15) %></td>
           <td><%= truncate(company.service_name, length: 10) %></td>
+          <% if company.cellphone_num%>
           <td><%= company.cellphone_num[0,3] %>-<%= company.cellphone_num[3,4] %>-<%= company.cellphone_num[7,4] %></td>
+          <% end %>
           <td>
-            <% if company.isRegistered %>
+            <% if company.is_registered %>
               O
             <% else %>
               X
             <% end %>
           </td>
           <td>
-            <% if company.isCorporated %>
+            <% if company.is_corporated %>
               O
             <% else %>
               X
             <% end %>
           </td>
           <td>
-            <% if company.isBusinessStudent %>
+            <% if company.is_business_student %>
               O
             <% else %>
               X
