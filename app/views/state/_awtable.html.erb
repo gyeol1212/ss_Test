@@ -1,0 +1,35 @@
+<table class="table" style="margin-top: 20px">
+  <tr>
+    <th>입력일</th>
+    <th>날짜</th>
+    <th>기관명</th>
+    <th>행사명</th>
+    <th>수상내용</th>
+    <th>관련자료</th>
+    <th>비고</th>
+  </tr>
+  
+    <% if company.awards.length > 0 %>
+      <% company.awards.each do |award| %>
+      <tr>
+        <td><%= award.created_at.to_s[0,10] %></td>
+        <td><%= award.when.to_s[0,10] %></td>
+        <td><%= award.institution %></td>
+        <td><%= award.title %></td>
+        <td><%= award.content %></td>
+        <td>
+          <% if award.related_file.attachment != nil %>
+            <a class="m-0 btn btn-outline-info" href="<%= award.related_file.service_url %>" target="_blank">보기</a>
+          <% else %>
+            <a class="m-0 btn btn-outline-info disabled" ><del>보기</del></a>
+          <% end %>
+        </td>
+        <td><%= award.bigo %></td>
+      <% end %>
+    <% else %>
+      <td></td><td></td>
+      <td>수상내역이 없습니다!</td>
+      <td></td><td></td>
+    </tr>
+    <% end %>
+</table>

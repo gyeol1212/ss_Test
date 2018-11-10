@@ -5,41 +5,7 @@
 
   <div>
     <h3 style="margin-left: 40px">1. 투자/엑셀러레이터 지원</h3>
-    <table class="table" style="margin-top: 20px">
-      <tr>
-        <th>입력일</th>
-        <th>날짜</th>
-        <th>기관명</th>
-        <th>사업명</th>
-        <th>지원</th>
-        <th>관련자료</th>
-        <th>비고</th>
-      </tr>
-      
-        <% if @company.funds.length > 0 %>
-          <% @company.funds.each do |fund| %>
-          <tr>
-            <td><%= fund.created_at.to_s[0,10] %></td>
-            <td><%= fund.when.to_s[0,10] %></td>
-            <td><%= fund.institution %></td>
-            <td><%= fund.title %></td>
-            <td><%= fund.content %></td>
-            <td>
-              <% if fund.related_file.attachment != nil %>
-                <a class="m-0 btn btn-outline-info" href="<%= fund.related_file.service_url %>" target="_blank">보기</a>
-              <% else %>
-                <a class="m-0 btn btn-outline-info disabled" ><del>보기</del></a>
-              <% end %>
-            </td>
-            <td><%= fund.bigo %></td>
-          </tr>
-          <% end %>
-        <% else %>
-          <td></td><td></td>
-          <td>투자/엑셀러레이터 지원사업이 없습니다!</td>
-          <td></td><td></td>
-        <% end %>
-    </table>
+    <%= render 'futable', company: @company %>
     <%= form_for @fund do |f| %>
       <span>입력일은 자동 생성</span>
       <%= f.date_field :when , required: true, style:"width:150px" %>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/companies/:id/states/fund' => 'state#fund', as: "fund"
   get '/companies/:id/states/press' => 'state#press', as: "press"
   get '/companies/:id/states/achievement' => 'state#achievement', as: "achievement"
+  get '/companies/:id/states/monthly' => 'state#monthly', as: "monthly"
   get '/companies/:id/states' => 'state#index', as: "state"
 
   post '/governments' => 'state#create_government'

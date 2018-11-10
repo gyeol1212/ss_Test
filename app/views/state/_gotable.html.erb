@@ -1,0 +1,35 @@
+<table class="table" style="margin-top: 20px">
+  <tr>
+    <th>입력일</th>
+    <th>날짜</th>
+    <th>기관명</th>
+    <th>사업명</th>
+    <th>사업내용</th>
+    <th>관련자료</th>
+    <th>비고</th>
+  </tr>
+  
+    <% if company.governments.length > 0 %>
+      <% company.governments.each do |government| %>
+      <tr>
+        <td><%= government.created_at.to_s[0,10] %></td>
+        <td><%= government.when.to_s[0,10] %></td>
+        <td><%= government.institution %></td>
+        <td><%= government.title %></td>
+        <td><%= government.content %></td>
+        <td>
+          <% if government.related_file.attachment != nil %>
+            <a class="m-0 btn btn-outline-info" href="<%= government.related_file.service_url %>" target="_blank">보기</a>
+          <% else %>
+            <a class="m-0 btn btn-outline-info disabled" ><del>보기</del></a>
+          <% end %>
+        </td>
+        <td><%= government.bigo %></td>
+      </tr>
+      <% end %>
+    <% else %>
+      <td></td><td></td>
+      <td>정부지원사업이 없습니다!</td>
+      <td></td><td></td>
+    <% end %>
+</table>

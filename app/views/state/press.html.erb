@@ -5,41 +5,7 @@
 
   <div>
     <h3 style="margin-left: 40px">4. 언론보도</h3>
-    <table class="table" style="margin-top: 20px">
-      <tr>
-        <th>입력일</th>
-        <th>보도일</th>
-        <th>언론사명</th>
-        <th>제목</th>
-        <th>링크</th>
-        <th>관련자료</th>
-        <th>비고</th>
-      </tr>
-      
-        <% if @company.presses.length > 0 %>
-          <% @company.presses.each do |press| %>
-          <tr>
-            <td><%= press.created_at.to_s[0,10] %></td>
-            <td><%= press.when.to_s[0,10] %></td>
-            <td><%= press.press_name %></td>
-            <td><%= press.title %></td>
-            <td><%= link_to press.link, press.link, target: "_blank" %></td>
-            <td>
-              <% if press.related_file.attachment != nil %>
-                <a class="m-0 btn btn-outline-info" href="<%= press.related_file.service_url %>" target="_blank">보기</a>
-              <% else %>
-                <a class="m-0 btn btn-outline-info disabled" ><del>보기</del></a>
-              <% end %>
-            </td>
-            <td><%= press.bigo %></td>
-          </tr>
-          <% end %>
-        <% else %>
-          <td></td><td></td>
-          <td>언론 보도가 없습니다!</td>
-          <td></td><td></td>
-        <% end %>
-    </table>
+    <%= render 'prtable', company: @company %>
     <%= form_for @press do |f| %>
       <span>입력일은 자동 생성</span>
       <%= f.date_field :when , required: true, style:"width:150px" %>
