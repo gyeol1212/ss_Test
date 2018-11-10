@@ -1,0 +1,11 @@
+<h1>현황관리</h1>
+
+<div>
+  <h2>1. 업무성과</h2>
+    <h3><%= link_to "정부지원사업", government_path(@company.id) %></h3>
+    <h3><%= link_to "수상내역", award_path(@company.id) %></h3>
+    <h3><%= link_to "투자/엑셀러레이터 지원", fund_path(@company.id) %></h3>
+    <h3><%= link_to "언론보도", press_path(@company.id) %></h3>
+    <h3><%= link_to "기타", achievement_path(@company.id) %></h3>
+  <h2>2. 사업진행계획</h2>
+</div>

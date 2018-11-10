@@ -1,4 +1,10 @@
 class Company < ApplicationRecord
+    has_many :governments
+    has_many :awards
+    has_many :funds
+    has_many :presses
+    has_many :achievements
+
     has_one_attached :logo_ai
     has_one_attached :logo
     has_one_attached :express_file

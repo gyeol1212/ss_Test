@@ -5,6 +5,20 @@ Rails.application.routes.draw do
 
   get 'home/visitor', as: "visitor"
 
+  get '/companies/:id/states/government' => 'state#government', as: "government"
+  get '/companies/:id/states/award' => 'state#award', as: "award"
+  get '/companies/:id/states/fund' => 'state#fund', as: "fund"
+  get '/companies/:id/states/press' => 'state#press', as: "press"
+  get '/companies/:id/states/achievement' => 'state#achievement', as: "achievement"
+  get '/companies/:id/states' => 'state#index', as: "state"
+
+  post '/governments' => 'state#create_government'
+  post '/awards' => 'state#create_award' 
+  post '/funds' => 'state#create_fund' 
+  post '/presses' => 'state#create_press' 
+  post '/achievements' => 'state#create_achievement' 
+
+
   resources :companies
 
    

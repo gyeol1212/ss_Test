@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  when: 2018-11-10 19:08:59
+  press_name: MyString
+  title: MyString
+  link: MyString
+  bigo: MyString
+  company: one
+
+two:
+  when: 2018-11-10 19:08:59
+  press_name: MyString
+  title: MyString
+  link: MyString
+  bigo: MyString
+  company: two

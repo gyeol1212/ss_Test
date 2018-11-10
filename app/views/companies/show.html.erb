@@ -4,8 +4,11 @@
 <div class="h5 my-5 border px-5">
     <div class="row align-items-center my-3 border">
         <div class="col-md-2 text-center">
-            <%# <%= image_tag @company.logo.variant(resize: "100x100"), class: "p-3" %>
-            <%= image_tag "https://picsum.photos/100/100", class: "p-3"%>
+            <% if @company.logo && @company.logo.attached? %>
+                <%= image_tag @company.logo.variant(resize: "100x100"), class: "p-3" %> 
+            <% else %>
+                <%= image_tag "https://picsum.photos/100/100", class: "p-3"%>
+            <% end %>
             <p ><%= @company.season %>기</p>
         </div>
         <div class="col-md-10 ">

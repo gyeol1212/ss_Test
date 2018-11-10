@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  when: 2018-11-10 18:51:15
+  institution: MyString
+  title: MyString
+  content: MyString
+  company: one
+  bigo: MyString
+
+two:
+  when: 2018-11-10 18:51:15
+  institution: MyString
+  title: MyString
+  content: MyString
+  company: two
+  bigo: MyString
