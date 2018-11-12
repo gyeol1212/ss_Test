@@ -1,0 +1,25 @@
+<table class="table" style="margin-top: 20px">
+<thead>
+  <tr>
+    <th>입력일</th>
+    <th>기간</th>
+    <th>내용</th>
+  </tr>
+  </thead>
+  
+    <% if plans.length > 0 %>
+      <tbody>
+      <% plans.each do |plan| %>
+      <tr>
+        <td><%= plan.created_at.to_s[0,10] %></td>
+        <td><%= plan.when.to_s[0,10] %></td>
+        <td><%= plan.content %></td>
+      </tr>
+      </tbody>
+      <% end %>
+    <% else %>
+    <tbody>
+      <td colspan="7" class="text-center"><%= title %>이 없습니다!</td>
+    </tbody>
+    <% end %>
+</table>

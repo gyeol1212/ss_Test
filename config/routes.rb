@@ -11,17 +11,17 @@ Rails.application.routes.draw do
   get '/companies/:id/states/press' => 'state#press', as: "press"
   get '/companies/:id/states/achievement' => 'state#achievement', as: "achievement"
   get '/companies/:id/states/monthly' => 'state#monthly', as: "monthly"
+  get '/companies/:id/states/plan/:category' => 'state#plan', as: "plan"
   get '/companies/:id/states' => 'state#index', as: "state"
 
   post '/governments' => 'state#create_government'
   post '/awards' => 'state#create_award' 
   post '/funds' => 'state#create_fund' 
   post '/presses' => 'state#create_press' 
-  post '/achievements' => 'state#create_achievement' 
-
+  post '/achievements' => 'state#create_achievement'
+  post '/plans' => 'state#create_plan'
 
   resources :companies
-
    
   root 'home#index'
   

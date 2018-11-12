@@ -4,6 +4,7 @@ class Company < ApplicationRecord
     has_many :funds
     has_many :presses
     has_many :achievements
+    has_many :plans
 
     has_one_attached :logo_ai
     has_one_attached :logo

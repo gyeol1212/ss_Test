@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_10_101951) do
+ActiveRecord::Schema.define(version: 2018_11_12_065718) do
 
   create_table "achievements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "when"
@@ -128,6 +128,16 @@ ActiveRecord::Schema.define(version: 2018_11_10_101951) do
     t.index ["company_id"], name: "index_governments_on_company_id"
   end
 
+  create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "when"
+    t.string "category"
+    t.text "content"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_plans_on_company_id"
+  end
+
   create_table "presses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "when"
     t.string "press_name"
@@ -160,5 +170,6 @@ ActiveRecord::Schema.define(version: 2018_11_10_101951) do
   add_foreign_key "companies", "users"
   add_foreign_key "funds", "companies"
   add_foreign_key "governments", "companies"
+  add_foreign_key "plans", "companies"
   add_foreign_key "presses", "companies"
 end

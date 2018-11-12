@@ -1,4 +1,4 @@
-<h1>현황관리</h1>
+<h1><%= link_to "현황관리", state_path(@company.id) %></h1>
 
 <div style="margin-top: 20px">
   <h2 style="margin-left: 20px">월간 보고서</h2>
@@ -12,4 +12,12 @@
   <%= render 'prtable', company: @company %>
   <h3>기타</h3>
   <%= render 'actable', company: @company %>
+  <h3>업무계획</h3>
+  <%= render 'plantable', plans: @plans.where({category: "work"}), title: "업무계획" %>
+  <h3>조직</h3>
+  <%= render 'plantable', plans: @plans.where({category: "organization"}), title: "조직" %>
+  <h3>외부 자금유치 지원계획</h3>
+  <%= render 'plantable', plans: @plans.where({category: "outbound"}), title: "외부 자금유치 지원계획" %>
+  <h3>기타</h3>
+  <%= render 'plantable', plans: @plans.where({category: "guitar"}), title: "기타" %>
 </div>

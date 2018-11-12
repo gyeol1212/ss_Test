@@ -104,7 +104,30 @@ class StateController < ApplicationController
     end
   end
 
+  def plan
+    collection = {"work" => "업무계획", "organization" => "조직", "outbound" => "외부 자금유치 지원계획", "guitar" => "기타"}
+    @company = Company.find(params[:id])
+    @plan = Plan.new
+    @plans = Plan.where({category: params[:category]})
+    @category = params[:category]
+    @title = collection[@category]
+  end
+
+  def create_plan
+    @plan = Plan.new(params.require(:plan).permit(:when, :content, :category))
+    @plan.company = Company.find(params[:plan][:company])
+    if @plan.save
+      redirect_back fallback_location: root_path
+    else
+      @plan.errors.each do |field, messages|
+        flash[:alert] += "'#{field}' #{messages} | "
+      end
+      redirect_back fallback_location: root_path
+    end
+  end
+
   def monthly
     @company = Company.find(params[:id])
+    @plans = Plan.all
   end
 end

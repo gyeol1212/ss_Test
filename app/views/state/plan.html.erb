@@ -1,0 +1,15 @@
+<div class="h2 text-center">현황관리 > <span class="h3"> 사업진행계획</span></div>
+
+<div>
+  <div class="h3"><%= @title %></div>
+
+  <%= render 'plantable', plans: @plans, title: @title %>
+        <span>입력일은 자동 생성</span>
+        <%= form_for @plan, html: { style:"display: inline" } do |f| %>
+          <%= f.date_field :when , required: true, style:"width:150px" %>
+          <%= f.text_field :content, required: true, style:"width:250px", placeholder: "내용 작성"  %>
+          <%= f.submit "작성", class:"btn btn-primary" %>
+          <%= f.hidden_field :category, value: @category %>
+          <%= f.hidden_field :company, value: @company.id %>
+        <% end %>
+</div>
