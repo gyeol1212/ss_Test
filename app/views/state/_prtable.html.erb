@@ -1,4 +1,5 @@
 <table class="table" style="margin-top: 20px">
+<thead>
   <tr>
     <th>입력일</th>
     <th>보도일</th>
@@ -8,8 +9,10 @@
     <th>관련자료</th>
     <th>비고</th>
   </tr>
+  </thead>
   
     <% if company.presses.length > 0 %>
+    <tbody>
       <% company.presses.each do |press| %>
       <tr>
         <td><%= press.created_at.to_s[0,10] %></td>
@@ -27,9 +30,10 @@
         <td><%= press.bigo %></td>
       </tr>
       <% end %>
+      </tbody>
     <% else %>
-      <td></td><td></td>
-      <td>언론 보도가 없습니다!</td>
-      <td></td><td></td>
+    <tbody>
+      <td colspan="7" class="text-center">언론 보도가 없습니다!</td>
+      </tbody>
     <% end %>
 </table>

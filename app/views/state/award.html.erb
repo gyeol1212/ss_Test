@@ -1,21 +1,36 @@
-<h1>현황관리</h1>
+<div class="h2 text-center">현황관리 > <span class="h3"> 업무성과</span></div>
 
-<div>
-  <h2 style="margin-left: 20px">1. 업무성과</h2>
 
-  <div>
-    <h3 style="margin-left: 40px">2. 수상내역</h3>
+<div class="h3">2. 수상 내역</div>
     <%= render 'awtable', company: @company %>
+  <table class="table" style="margin-top : 100px">
+    <thead>
+      <tr>
+        <th>입력일</th>
+        <th>날짜</th>
+        <th>기관명</th>
+        <th>행사명</th>
+        <th>수상내용</th>
+        <th>관련자료</th>
+        <th colspan="2">비고</th>
+        <th></th>
+      </tr>
+    </thead>
+
     <%= form_for @award do |f| %>
-      <span>입력일은 자동 생성</span>
-      <%= f.date_field :when , required: true, style:"width:150px" %>
-      <%= f.text_field :institution , required: true, style:"width:100px", placeholder: "기관명 작성" %>
-      <%= f.text_field :title , required: true, style:"width:100px", placeholder: "행사명 작성"  %>
-      <%= f.text_field :content, required: true, style:"width:100px", placeholder: "수상내용 작성"  %>
-      <%= f.file_field :related_file, required: true, style:"width:170px" %>
-      <%= f.text_field :bigo, style:"width:100px", placeholder: "비고 작성" %>
-      <%= f.hidden_field :company, value: @company.id %>
-      <%= f.submit "작성", class:"btn btn-primary" %>
+    <tbody>
+      <tr>
+        <td>자동 생성</td>
+        <td><%= f.date_field :when , required: true, style:"width:150px" %></td>
+        <td><%= f.text_field :institution , required: true, style:"width:100px", placeholder: "기관명 작성" %></td>
+        <td><%= f.text_field :title , required: true, style:"width:100px", placeholder: "행사명 작성"  %></td>
+        <td><%= f.text_field :content, required: true, style:"width:100px", placeholder: "수상내용 작성"  %></td>
+        <td><%= f.file_field :related_file, required: true, style:"width:170px" %></td>
+        <td><%= f.text_field :bigo, style:"width:100px", placeholder: "비고 작성" %></td>
+        <td><%= f.hidden_field :company, value: @company.id %></td>
+        <td><%= f.submit "작성", class:"btn btn-primary" %></td>
+      </tr>
+    </tbody>
     <% end %>
-  </div>
+  </table>
 </div>

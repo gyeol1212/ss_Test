@@ -1,13 +1,18 @@
-<h1>현황관리</h1>
+<div class="h2 text-center">현황관리</div>
 
-<div>
-  <h2>1. 업무성과</h2>
-    <h3><%= link_to "정부지원사업", government_path(@company.id) %></h3>
-    <h3><%= link_to "수상내역", award_path(@company.id) %></h3>
-    <h3><%= link_to "투자/엑셀러레이터 지원", fund_path(@company.id) %></h3>
-    <h3><%= link_to "언론보도", press_path(@company.id) %></h3>
-    <h3><%= link_to "기타", achievement_path(@company.id) %></h3>
-  <h2>2. 사업진행계획</h2>
-
-  <h2 style="text-align: right"><%= link_to "월간 보고서", monthly_path(@company.id) %></h2>
+<div class="list-group">
+  <div class="h4 mb-3">1. 업무성과</div>
+    <%= link_to "정부지원사업", government_path(@company.id), class: "list-group-item list-group-item-action" %>
+    <%= link_to "수상내역", award_path(@company.id), class: "list-group-item list-group-item-action" %>
+    <%= link_to "투자/엑셀러레이터 지원", fund_path(@company.id), class: "list-group-item list-group-item-action" %>
+    <%= link_to "언론보도", press_path(@company.id), class: "list-group-item list-group-item-action" %>
+    <%= link_to "기타", achievement_path(@company.id), class: "list-group-item list-group-item-action" %>
+  <div class="h4 my-3">2. 사업진행계획</div>
+  <%= link_to "업무계획", government_path(@company.id), class: "list-group-item list-group-item-action" %>
+    <%= link_to "조직", award_path(@company.id), class: "list-group-item list-group-item-action" %>
+    <%= link_to "외부 자금유치 지원계획", fund_path(@company.id), class: "list-group-item list-group-item-action" %>
+    <%= link_to "기타", press_path(@company.id), class: "list-group-item list-group-item-action" %>
 </div>
+<div class="text-center">
+  <%= link_to "월간 보고서", monthly_path(@company.id), class: "text-center btn btn-light mt-2" %>
+  </div>

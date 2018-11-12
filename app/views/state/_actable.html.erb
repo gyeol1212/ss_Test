@@ -1,4 +1,5 @@
 <table class="table" style="margin-top: 20px">
+  <thead>
   <tr>
     <th>입력일</th>
     <th>날짜</th>
@@ -6,8 +7,10 @@
     <th>관련자료</th>
     <th>비고</th>
   </tr>
+  </thead>
   
     <% if company.achievements.length > 0 %>
+    <tbody>
       <% company.achievements.each do |achievement| %>
       <tr>
         <td><%= achievement.created_at.to_s[0,10] %></td>
@@ -21,11 +24,12 @@
           <% end %>
         </td>
         <td><%= achievement.bigo %></td>
+        </tr>
       <% end %>
+      </tbody>
     <% else %>
-      <td></td><td></td>
-      <td>기타 성과가 없습니다!</td>
-      <td></td><td></td>
-    </tr>
+      <tbody>
+      <td colspan="5" class="text-center">기타 성과가 없습니다!</td>
+      </tbody>
     <% end %>
 </table>
