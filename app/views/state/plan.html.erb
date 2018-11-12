@@ -4,12 +4,24 @@
   <div class="h3"><%= @title %></div>
 
   <%= render 'plantable', plans: @plans, title: @title %>
-        <span>입력일은 자동 생성</span>
-        <%= form_for @plan, html: { style:"display: inline" } do |f| %>
-          <%= f.date_field :when , required: true, style:"width:150px" %>
-          <%= f.text_field :content, required: true, style:"width:250px", placeholder: "내용 작성"  %>
-          <%= f.submit "작성", class:"btn btn-primary" %>
-          <%= f.hidden_field :category, value: @category %>
-          <%= f.hidden_field :company, value: @company.id %>
+        <table class="table " style="margin-top: 100px">
+        <thead>
+        <tr>
+          <th>입력일</th>
+          <th>기간</th>
+          <th colspan="2">내용</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= form_for @plan, html: { style:"display: inline", id: 'form' } do |f| %>
+        <td>입력일은 자동 생성</td>
+          <td><%= f.date_field :when , required: true, style:"width:150px", form: 'form' %></td>
+          <td><%= f.text_field :content, required: true, style:"width:250px", placeholder: "내용 작성" , form: 'form' %></td>
+          <td><%= f.submit "작성", class:"btn btn-primary", form: 'form' %></td>
+          <td><%= f.hidden_field :category, value: @category, form: 'form' %></td>
+          <td><%= f.hidden_field :company, value: @company.id, form: 'form' %></td>
         <% end %>
+        </tbody>
+      </table>
 </div>

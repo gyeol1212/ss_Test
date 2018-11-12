@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
-
+    skip_before_action :verify_authenticity_token
     # 다운받는 파일 이름 설정하기 위해 필요
     def set_attachment_name(name)
         escaped = URI.encode(name)

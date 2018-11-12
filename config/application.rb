@@ -20,3 +20,5 @@ module Gogo
     # the framework and any gems in your application.
   end
 end
+
+config.action_controller.allow_forgery_protection = false
