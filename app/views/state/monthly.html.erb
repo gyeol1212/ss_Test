@@ -1,23 +1,24 @@
-<h1><%= link_to "현황관리", state_path(@company.id) %></h1>
+<div class="h2 text-center"><%= link_to "현황관리", state_path(@company.id)%> ><span class="h3"> 월간 보고서</span></div>
 
-<div style="margin-top: 20px">
-  <h2 style="margin-left: 20px">월간 보고서</h2>
-  <h3 style="margin-top: 20px">정부지원사업</h3>
+  <h3>업무 성과</h3>
+  <h4 style="margin-top: 20px">1.정부지원사업</h4>
   <%= render 'gotable', company: @company %>
-  <h3>수상내역</h3>
+  <h4>2.수상내역</h4>
   <%= render 'awtable', company: @company %>
-  <h3>투자/엑셀러레이터 지원</h3>
+  <h4>3.투자/엑셀러레이터 지원</h4>
   <%= render 'futable', company: @company %>
-  <h3>언론보도</h3>
+  <h4>4.언론보도</h4>
   <%= render 'prtable', company: @company %>
-  <h3>기타</h3>
+  <h4>5.기타</h4>
   <%= render 'actable', company: @company %>
-  <h3>업무계획</h3>
+
+  <h3>사업 진행 계획</h3>
+  <h4 style="margin-top: 20px">1.업무계획</h4>
   <%= render 'plantable', plans: @plans.where({category: "work"}), title: "업무계획" %>
-  <h3>조직</h3>
+  <h4>2.조직</h4>
   <%= render 'plantable', plans: @plans.where({category: "organization"}), title: "조직" %>
-  <h3>외부 자금유치 지원계획</h3>
+  <h4>3.외부 자금유치 지원계획</h4>
   <%= render 'plantable', plans: @plans.where({category: "outbound"}), title: "외부 자금유치 지원계획" %>
-  <h3>기타</h3>
+  <h4>4.기타</h4>
   <%= render 'plantable', plans: @plans.where({category: "guitar"}), title: "기타" %>
 </div>
