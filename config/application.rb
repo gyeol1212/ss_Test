@@ -21,4 +21,4 @@ module Gogo
   end
 end
 
-config.action_controller.allow_forgery_protection = false
+# config.action_controller.allow_forgery_protection = false
